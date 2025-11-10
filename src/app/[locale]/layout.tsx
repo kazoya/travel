@@ -9,8 +9,11 @@ import {
 } from "@/components/ui/sidebar";
 import { SiteSidebar } from "@/components/site-sidebar";
 import { SiteHeader } from "@/components/site-header";
+import { FloatingAssistBar } from "@/components/floating-assist-bar";
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import { Cairo, PT_Sans, Space_Grotesk, Source_Code_Pro } from 'next/font/google';
 import { FirebaseClientProvider } from "@/firebase/client-provider";
 
@@ -42,13 +45,21 @@ export const metadata: Metadata = {
   description: "Barrier-free travel for everyone.",
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
 export default async function RootLayout({
   children,
-  params: { locale }
+  params
 }: Readonly<{
   children: React.ReactNode;
-  params: {locale: string};
+  params: Promise<{locale: string}>;
 }>) {
+  const { locale } = await params;
+  // Enable static rendering
+  setRequestLocale(locale);
+  
   const messages = await getMessages();
 
   const fontVariables = locale === 'ar' 
@@ -76,6 +87,7 @@ export default async function RootLayout({
                   </div>
                 </SidebarInset>
               </SidebarProvider>
+              <FloatingAssistBar />
               <Toaster />
             </ThemeProvider>
           </FirebaseClientProvider>

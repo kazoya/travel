@@ -38,6 +38,22 @@
       "luggage": {
         "title": "تحضير الحقيبة",
         "description": "قوائم ذكية لمساعدتك على حزم أمتعتك."
+      },
+      "destinations360": {
+        "title": "استعرض الوجهات 360°",
+        "description": "استكشف الوجهات بجولات افتراضية."
+      },
+      "booking": {
+        "title": "حجز الأماكن",
+        "description": "احجز فنادق وأماكن مهيأة."
+      },
+      "culturalCommunication": {
+        "title": "التواصل الثقافي",
+        "description": "تواصل مع المجتمعات المحلية."
+      },
+      "academy": {
+        "title": "أكاديمية السفر",
+        "description": "تعلم كيفية السفر بثقة."
       }
     },
     "recommendationsTitle": "توصيات وعروض",
@@ -56,7 +72,19 @@
   "FloatingAssistant": {
     "sos": "SOS",
     "assistant": "مساعد ذكي",
-    "displayMode": "تبديل وضع العرض"
+    "displayMode": "تبديل وضع العرض",
+    "sosDialog": {
+      "title": "تفعيل نداء الطوارئ؟",
+      "description": "سيؤدي هذا إلى إرسال موقعك وتفاصيل جواز سفرك الصحي على الفور إلى جهات الاتصال في حالات الطوارئ.",
+      "cancel": "إلغاء",
+      "confirm": "تأكيد وإرسال التنبيه"
+    },
+    "modes": {
+      "default": "افتراضي",
+      "audio": "صوتي",
+      "visual": "بصري",
+      "sign": "لغة الإشارة"
+    }
   },
   "SOS": {
     "sosButton": "الطوارئ",
@@ -73,7 +101,16 @@
     "supportDirectory": "دليل الدعم",
     "solidarityHosts": "مضيفون متضامنون",
     "signTranslator": "مترجم الإشارة",
-    "healthPassport": "الجواز الصحي"
+    "healthPassport": "الجواز الصحي",
+    "culturalCommunication": "التواصل الثقافي",
+    "travelBag": "حقيبة السفر",
+    "emergency": "الطوارئ",
+    "booking": "حجز الأماكن",
+    "training": "التدريب",
+    "companionAuth": "تسجيل المرافقين",
+    "academy": "الأكاديمية",
+    "profile": "الملف الشخصي",
+    "destinations360": "الوجهات 360°"
   },
   "TripPlanner": {
     "title": "مخطط الرحلات الشخصي",
@@ -163,5 +200,370 @@
   "ThemeToggle": {
     "default": "الوضع الافتراضي",
     "highContrast": "تباين عالٍ"
+  },
+  "CulturalCommunication": {
+    "title": "التواصل الثقافي",
+    "description": "تواصل مع المجتمعات المحلية وشارك تجاربك الثقافية أثناء السفر.",
+    "features": {
+      "culturalExchange": {
+        "title": "التبادل الثقافي",
+        "description": "تعرف على الثقافات المحلية وشارك ثقافتك مع الآخرين."
+      },
+      "localConnections": {
+        "title": "الاتصالات المحلية",
+        "description": "تواصل مع السكان المحليين والمسافرين الآخرين."
+      },
+      "languageSupport": {
+        "title": "دعم اللغة",
+        "description": "احصل على مساعدة في الترجمة والتواصل."
+      }
+    },
+    "connectForm": {
+      "title": "تواصل معنا",
+      "description": "أرسل رسالة للتواصل مع المجتمع.",
+      "namePlaceholder": "اسمك",
+      "emailPlaceholder": "بريدك الإلكتروني",
+      "messagePlaceholder": "رسالتك...",
+      "submitButton": "إرسال"
+    },
+    "community": {
+      "title": "المجتمع",
+      "description": "انضم إلى مجتمع المسافرين من ذوي الإعاقة.",
+      "shareExperience": "شارك تجربتك",
+      "shareDescription": "أخبر الآخرين عن رحلاتك وتجاربك.",
+      "findCompanion": "ابحث عن مرافق",
+      "findDescription": "تواصل مع مرافقين محليين.",
+      "joinButton": "انضم الآن"
+    }
+  },
+  "TravelBag": {
+    "title": "حقيبة السفر",
+    "description": "قوائم ذكية لمساعدتك على تحضير حقيبتك.",
+    "completed": "مكتمل",
+    "categories": {
+      "documents": {
+        "title": "المستندات",
+        "passport": "جواز السفر",
+        "visa": "التأشيرة",
+        "healthPassport": "جواز السفر الصحي",
+        "insurance": "التأمين",
+        "emergencyContacts": "جهات الاتصال للطوارئ"
+      },
+      "medical": {
+        "title": "الطبية",
+        "medications": "الأدوية",
+        "prescriptions": "الوصفات الطبية",
+        "medicalRecords": "السجلات الطبية",
+        "firstAid": "الإسعافات الأولية",
+        "assistiveDevices": "الأجهزة المساعدة"
+      },
+      "clothing": {
+        "title": "الملابس",
+        "underwear": "الملابس الداخلية",
+        "comfortableShoes": "أحذية مريحة",
+        "weatherAppropriate": "ملابس مناسبة للطقس",
+        "extraClothes": "ملابس إضافية"
+      },
+      "accessibility": {
+        "title": "إمكانية الوصول",
+        "wheelchair": "كرسي متحرك",
+        "hearingAids": "أجهزة السمع",
+        "visualAids": "أجهزة بصرية",
+        "chargers": "شواحن"
+      }
+    },
+    "customItems": {
+      "title": "عناصر مخصصة",
+      "description": "أضف عناصر خاصة بك",
+      "placeholder": "عنصر جديد..."
+    }
+  },
+  "Emergency": {
+    "title": "صفحة الطوارئ",
+    "description": "مساعدة فورية في حالات الطوارئ.",
+    "location": {
+      "title": "الموقع",
+      "current": "موقعك الحالي",
+      "fetching": "جارٍ جلب الموقع...",
+      "update": "تحديث الموقع",
+      "error": "خطأ في جلب الموقع"
+    },
+    "healthStatus": {
+      "title": "الحالة الصحية",
+      "description": "عرض معلوماتك الصحية من جواز السفر.",
+      "viewPassport": "عرض جواز السفر"
+    },
+    "language": {
+      "title": "اللغة",
+      "description": "اختر لغتك المفضلة للتواصل في حالات الطوارئ."
+    },
+    "quickContacts": {
+      "title": "جهات الاتصال السريعة",
+      "description": "اتصل بالخدمات الطارئة مباشرة.",
+      "police": "الشرطة",
+      "hospital": "المستشفى",
+      "embassy": "السفارة"
+    },
+    "digitalPassport": {
+      "title": "جواز السفر الرقمي",
+      "description": "عرض جواز سفرك الصحي الرقمي.",
+      "viewButton": "عرض الجواز"
+    },
+    "sosButton": "SOS - الطوارئ",
+    "sosDialog": {
+      "title": "تفعيل نداء الطوارئ؟",
+      "description": "سيؤدي هذا إلى إرسال موقعك وتفاصيل جواز سفرك الصحي على الفور.",
+      "cancel": "إلغاء",
+      "confirm": "تأكيد وإرسال التنبيه"
+    }
+  },
+  "Booking": {
+    "title": "حجز الأماكن",
+    "description": "احجز فنادق وأماكن مهيأة لذوي الإعاقة.",
+    "searchForm": {
+      "title": "ابحث عن مكان",
+      "description": "ابحث عن الفنادق والأماكن المناسبة.",
+      "destination": "الوجهة",
+      "destinationPlaceholder": "أين تريد أن تذهب؟",
+      "checkIn": "تاريخ الوصول",
+      "checkOut": "تاريخ المغادرة",
+      "selectDate": "اختر تاريخ",
+      "guests": "الضيوف",
+      "searchButton": "بحث"
+    },
+    "perNight": "لليلة",
+    "bookNow": "احجز الآن",
+    "samplePlaces": {
+      "hotel1": {
+        "name": "فندق الوصول الميسر",
+        "location": "الدوحة، قطر",
+        "wheelchair": "وصول بالكرسي المتحرك",
+        "visual": "دعم بصري"
+      },
+      "hotel2": {
+        "name": "فندق الشامل",
+        "location": "الدوحة، قطر",
+        "wheelchair": "وصول بالكرسي المتحرك",
+        "hearing": "دعم سمعي"
+      }
+    }
+  },
+  "Training": {
+    "title": "تدريب الشركات والفنادق",
+    "description": "تعلم كيفية جعل خدماتك أكثر سهولة للوصول.",
+    "features": {
+      "videos": {
+        "title": "دروس فيديو",
+        "description": "دروس مصورة قصيرة وسهلة الفهم."
+      },
+      "materials": {
+        "title": "مواد تعليمية",
+        "description": "موارد شاملة للتعلم."
+      },
+      "certification": {
+        "title": "شهادة",
+        "description": "احصل على شهادة بعد إكمال الدورة."
+      }
+    },
+    "availableCourses": "الدورات المتاحة",
+    "duration": "المدة",
+    "continue": "متابعة",
+    "start": "بدء",
+    "progress": "التقدم",
+    "benefits": {
+      "title": "الفوائد",
+      "benefit1": "تحسين خدمة العملاء",
+      "benefit2": "زيادة قاعدة العملاء",
+      "benefit3": "الامتثال للمعايير"
+    },
+    "courses": {
+      "basics": {
+        "title": "أساسيات إمكانية الوصول",
+        "description": "تعلم الأساسيات لجعل خدماتك قابلة للوصول.",
+        "duration": "2 ساعة"
+      },
+      "hotel": {
+        "title": "إمكانية الوصول في الفنادق",
+        "description": "كيفية جعل الفندق مناسبًا لذوي الإعاقة.",
+        "duration": "3 ساعات"
+      },
+      "transport": {
+        "title": "إمكانية الوصول في النقل",
+        "description": "كيفية توفير نقل ميسر.",
+        "duration": "2.5 ساعة"
+      }
+    }
+  },
+  "CompanionAuth": {
+    "title": "تسجيل المرافقين",
+    "description": "سجل كمرافق لمساعدة المسافرين من ذوي الإعاقة.",
+    "login": {
+      "title": "تسجيل الدخول",
+      "description": "سجل الدخول إلى حسابك.",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "submitButton": "تسجيل الدخول",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "resetLink": "إعادة تعيين"
+    },
+    "register": {
+      "title": "تسجيل جديد",
+      "description": "أنشئ حسابًا كمرافق.",
+      "name": "الاسم",
+      "namePlaceholder": "اسمك الكامل",
+      "phone": "الهاتف",
+      "phonePlaceholder": "+974-XXXX-XXXX",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "بريدك الإلكتروني",
+      "location": "الموقع",
+      "locationPlaceholder": "مدينتك",
+      "languages": "اللغات",
+      "languagesPlaceholder": "مثال: العربية، الإنجليزية",
+      "experience": "الخبرة",
+      "experiencePlaceholder": "وصف خبرتك",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "كلمة مرور قوية",
+      "submitButton": "تسجيل",
+      "terms": "بالتسجيل، أنت توافق على الشروط والأحكام."
+    },
+    "benefits": {
+      "title": "فوائد كونك مرافق",
+      "benefit1": "مساعدة الآخرين",
+      "benefit2": "تجارب ثقافية غنية",
+      "benefit3": "مكافآت ونقاط",
+      "benefit4": "مجتمع داعم"
+    }
+  },
+  "Academy": {
+    "title": "أكاديمية سفر بلا حدود",
+    "description": "تعلم كيفية السفر بثقة وأمان.",
+    "stats": {
+      "videos": "فيديوهات",
+      "lessons": "دروس",
+      "progress": "التقدم"
+    },
+    "lessonsTitle": "الدروس المتاحة",
+    "video": "فيديو",
+    "interactive": "تفاعلي",
+    "review": "مراجعة",
+    "start": "بدء",
+    "achievementsTitle": "الإنجازات",
+    "earned": "مكتسب",
+    "lessons": {
+      "planning": {
+        "title": "تخطيط الرحلة",
+        "description": "تعلم كيفية التخطيط لرحلة ناجحة."
+      },
+      "packing": {
+        "title": "تحضير الحقيبة",
+        "description": "نصائح لتحضير حقيبتك بشكل صحيح."
+      },
+      "rights": {
+        "title": "حقوق المسافرين",
+        "description": "تعرف على حقوقك كمسافر من ذوي الإعاقة."
+      },
+      "safety": {
+        "title": "السلامة أثناء السفر",
+        "description": "كيفية البقاء آمناً أثناء السفر."
+      }
+    },
+    "achievements": {
+      "firstLesson": "أول درس",
+      "halfway": "في منتصف الطريق",
+      "complete": "مكتمل"
+    }
+  },
+  "Profile": {
+    "title": "ملفي الشخصي",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "disability": "الإعاقة",
+      "travel": "السفر",
+      "rewards": "المكافآت"
+    },
+    "overview": {
+      "personalInfo": {
+        "title": "المعلومات الشخصية",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "edit": "تعديل"
+      },
+      "digitalPassport": {
+        "title": "جواز السفر الرقمي",
+        "description": "عرض وإدارة جواز سفرك الصحي.",
+        "view": "عرض الجواز"
+      }
+    },
+    "disability": {
+      "title": "معلومات الإعاقة",
+      "type": "نوع الإعاقة",
+      "assistiveDevices": "الأجهزة المساعدة",
+      "preferences": "تفضيلات السفر",
+      "edit": "تعديل"
+    },
+    "travel": {
+      "history": {
+        "title": "سجل الرحلات",
+        "description": "رحلاتك السابقة"
+      },
+      "reviews": {
+        "title": "مراجعاتي",
+        "description": "المراجعات التي كتبتها"
+      }
+    },
+    "rewards": {
+      "title": "نظام المكافآت",
+      "points": "نقطة",
+      "nextLevel": "المستوى التالي",
+      "badges": "شارات",
+      "reviews": "مراجعات",
+      "trips": "رحلات"
+    }
+  },
+  "Destinations360": {
+    "title": "استعرض الوجهات 360°",
+    "description": "استكشف الوجهات بجولات افتراضية 360 درجة.",
+    "view360": "عرض 360°",
+    "accessibilityFeatures": "ميزات إمكانية الوصول",
+    "explore": "استكشف",
+    "howItWorks": {
+      "title": "كيف يعمل",
+      "step1": {
+        "title": "اختر وجهة",
+        "description": "اختر الوجهة التي تريد استكشافها."
+      },
+      "step2": {
+        "title": "استكشف 360°",
+        "description": "استخدم الجولة الافتراضية لاستكشاف المكان."
+      },
+      "step3": {
+        "title": "احجز",
+        "description": "احجز مكانك بعد الاستكشاف."
+      }
+    },
+    "destinations": {
+      "doha": {
+        "name": "الدوحة",
+        "location": "قطر",
+        "wheelchair": "وصول بالكرسي المتحرك",
+        "visual": "دعم بصري",
+        "hearing": "دعم سمعي"
+      },
+      "dubai": {
+        "name": "دبي",
+        "location": "الإمارات العربية المتحدة",
+        "wheelchair": "وصول بالكرسي المتحرك",
+        "visual": "دعم بصري"
+      },
+      "istanbul": {
+        "name": "إسطنبول",
+        "location": "تركيا",
+        "wheelchair": "وصول بالكرسي المتحرك",
+        "hearing": "دعم سمعي"
+      }
+    }
   }
 }

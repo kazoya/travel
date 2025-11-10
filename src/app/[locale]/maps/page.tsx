@@ -8,7 +8,8 @@ import {
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, MapPin } from "lucide-react";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import { cn } from "@/lib/utils";
 
 const locations = [
@@ -54,7 +55,17 @@ const locations = [
   },
 ];
 
-export default async function MapsPage() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export default async function MapsPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Maps');
   return (
     <div className="container mx-auto max-w-4xl">

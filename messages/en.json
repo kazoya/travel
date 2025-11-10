@@ -32,6 +32,26 @@
       "healthPassport": {
         "title": "Digital Health Passport",
         "description": "Manage your health info securely."
+      },
+      "luggage": {
+        "title": "Travel Bag",
+        "description": "Smart checklists to help you pack."
+      },
+      "destinations360": {
+        "title": "Explore Destinations 360°",
+        "description": "Explore destinations with virtual tours."
+      },
+      "booking": {
+        "title": "Book Places",
+        "description": "Book accessible hotels and places."
+      },
+      "culturalCommunication": {
+        "title": "Cultural Communication",
+        "description": "Connect with local communities."
+      },
+      "academy": {
+        "title": "Travel Academy",
+        "description": "Learn how to travel with confidence."
       }
     }
   },
@@ -53,7 +73,16 @@
     "supportDirectory": "Support Directory",
     "solidarityHosts": "Solidarity Hosts",
     "signTranslator": "Sign Translator",
-    "healthPassport": "Health Passport"
+    "healthPassport": "Health Passport",
+    "culturalCommunication": "Cultural Communication",
+    "travelBag": "Travel Bag",
+    "emergency": "Emergency",
+    "booking": "Booking",
+    "training": "Training",
+    "companionAuth": "Companion Auth",
+    "academy": "Academy",
+    "profile": "Profile",
+    "destinations360": "Destinations 360°"
   },
   "TripPlanner": {
     "title": "Personalized Trip Planner",
@@ -143,5 +172,387 @@
   "ThemeToggle": {
     "default": "Default",
     "highContrast": "High Contrast"
+  },
+  "FloatingAssistant": {
+    "sos": "SOS",
+    "assistant": "Smart Assistant",
+    "displayMode": "Display Mode",
+    "sosDialog": {
+      "title": "Activate Emergency SOS?",
+      "description": "This will immediately send your location and health passport details to your emergency contacts.",
+      "cancel": "Cancel",
+      "confirm": "Confirm & Send Alert"
+    },
+    "modes": {
+      "default": "Default",
+      "audio": "Audio",
+      "visual": "Visual",
+      "sign": "Sign Language"
+    }
+  },
+  "CulturalCommunication": {
+    "title": "Cultural Communication",
+    "description": "Connect with local communities and share your cultural experiences while traveling.",
+    "features": {
+      "culturalExchange": {
+        "title": "Cultural Exchange",
+        "description": "Learn about local cultures and share your culture with others."
+      },
+      "localConnections": {
+        "title": "Local Connections",
+        "description": "Connect with locals and other travelers."
+      },
+      "languageSupport": {
+        "title": "Language Support",
+        "description": "Get help with translation and communication."
+      }
+    },
+    "connectForm": {
+      "title": "Connect With Us",
+      "description": "Send a message to connect with the community.",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message...",
+      "submitButton": "Send"
+    },
+    "community": {
+      "title": "Community",
+      "description": "Join the community of travelers with disabilities.",
+      "shareExperience": "Share Your Experience",
+      "shareDescription": "Tell others about your trips and experiences.",
+      "findCompanion": "Find a Companion",
+      "findDescription": "Connect with local companions.",
+      "joinButton": "Join Now"
+    }
+  },
+  "TravelBag": {
+    "title": "Travel Bag",
+    "description": "Smart checklists to help you pack your bag.",
+    "completed": "Completed",
+    "categories": {
+      "documents": {
+        "title": "Documents",
+        "passport": "Passport",
+        "visa": "Visa",
+        "healthPassport": "Health Passport",
+        "insurance": "Insurance",
+        "emergencyContacts": "Emergency Contacts"
+      },
+      "medical": {
+        "title": "Medical",
+        "medications": "Medications",
+        "prescriptions": "Prescriptions",
+        "medicalRecords": "Medical Records",
+        "firstAid": "First Aid",
+        "assistiveDevices": "Assistive Devices"
+      },
+      "clothing": {
+        "title": "Clothing",
+        "underwear": "Underwear",
+        "comfortableShoes": "Comfortable Shoes",
+        "weatherAppropriate": "Weather Appropriate",
+        "extraClothes": "Extra Clothes"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "wheelchair": "Wheelchair",
+        "hearingAids": "Hearing Aids",
+        "visualAids": "Visual Aids",
+        "chargers": "Chargers"
+      }
+    },
+    "customItems": {
+      "title": "Custom Items",
+      "description": "Add your own items",
+      "placeholder": "New item..."
+    }
+  },
+  "Emergency": {
+    "title": "Emergency Page",
+    "description": "Immediate help in emergency situations.",
+    "location": {
+      "title": "Location",
+      "current": "Your current location",
+      "fetching": "Fetching location...",
+      "update": "Update Location",
+      "error": "Error fetching location"
+    },
+    "healthStatus": {
+      "title": "Health Status",
+      "description": "View your health information from passport.",
+      "viewPassport": "View Passport"
+    },
+    "language": {
+      "title": "Language",
+      "description": "Choose your preferred language for emergency communication."
+    },
+    "quickContacts": {
+      "title": "Quick Contacts",
+      "description": "Call emergency services directly.",
+      "police": "Police",
+      "hospital": "Hospital",
+      "embassy": "Embassy"
+    },
+    "digitalPassport": {
+      "title": "Digital Passport",
+      "description": "View your digital health passport.",
+      "viewButton": "View Passport"
+    },
+    "sosButton": "SOS - Emergency",
+    "sosDialog": {
+      "title": "Activate Emergency SOS?",
+      "description": "This will immediately send your location and health passport details.",
+      "cancel": "Cancel",
+      "confirm": "Confirm & Send Alert"
+    }
+  },
+  "Booking": {
+    "title": "Book Places",
+    "description": "Book accessible hotels and places.",
+    "searchForm": {
+      "title": "Search for a Place",
+      "description": "Search for suitable hotels and places.",
+      "destination": "Destination",
+      "destinationPlaceholder": "Where do you want to go?",
+      "checkIn": "Check-in Date",
+      "checkOut": "Check-out Date",
+      "selectDate": "Select Date",
+      "guests": "Guests",
+      "searchButton": "Search"
+    },
+    "perNight": "per night",
+    "bookNow": "Book Now",
+    "samplePlaces": {
+      "hotel1": {
+        "name": "Accessible Hotel",
+        "location": "Doha, Qatar",
+        "wheelchair": "Wheelchair Access",
+        "visual": "Visual Support"
+      },
+      "hotel2": {
+        "name": "Inclusive Hotel",
+        "location": "Doha, Qatar",
+        "wheelchair": "Wheelchair Access",
+        "hearing": "Hearing Support"
+      }
+    }
+  },
+  "Training": {
+    "title": "Training for Companies & Hotels",
+    "description": "Learn how to make your services more accessible.",
+    "features": {
+      "videos": {
+        "title": "Video Lessons",
+        "description": "Short, easy-to-understand video lessons."
+      },
+      "materials": {
+        "title": "Learning Materials",
+        "description": "Comprehensive learning resources."
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Get certified after completing the course."
+      }
+    },
+    "availableCourses": "Available Courses",
+    "duration": "Duration",
+    "continue": "Continue",
+    "start": "Start",
+    "progress": "Progress",
+    "benefits": {
+      "title": "Benefits",
+      "benefit1": "Improve customer service",
+      "benefit2": "Expand customer base",
+      "benefit3": "Compliance with standards"
+    },
+    "courses": {
+      "basics": {
+        "title": "Accessibility Basics",
+        "description": "Learn the basics of making your services accessible.",
+        "duration": "2 hours"
+      },
+      "hotel": {
+        "title": "Accessibility in Hotels",
+        "description": "How to make your hotel disability-friendly.",
+        "duration": "3 hours"
+      },
+      "transport": {
+        "title": "Accessibility in Transport",
+        "description": "How to provide accessible transportation.",
+        "duration": "2.5 hours"
+      }
+    }
+  },
+  "CompanionAuth": {
+    "title": "Companion Registration",
+    "description": "Register as a companion to help travelers with disabilities.",
+    "login": {
+      "title": "Login",
+      "description": "Sign in to your account.",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Sign In",
+      "forgotPassword": "Forgot password?",
+      "resetLink": "Reset"
+    },
+    "register": {
+      "title": "Register",
+      "description": "Create an account as a companion.",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "phone": "Phone",
+      "phonePlaceholder": "+1-555-XXXX-XXXX",
+      "email": "Email",
+      "emailPlaceholder": "Your email",
+      "location": "Location",
+      "locationPlaceholder": "Your city",
+      "languages": "Languages",
+      "languagesPlaceholder": "e.g., English, Arabic",
+      "experience": "Experience",
+      "experiencePlaceholder": "Describe your experience",
+      "password": "Password",
+      "passwordPlaceholder": "Strong password",
+      "submitButton": "Register",
+      "terms": "By registering, you agree to the terms and conditions."
+    },
+    "benefits": {
+      "title": "Benefits of Being a Companion",
+      "benefit1": "Help others",
+      "benefit2": "Rich cultural experiences",
+      "benefit3": "Rewards and points",
+      "benefit4": "Supportive community"
+    }
+  },
+  "Academy": {
+    "title": "Travel Without Limits Academy",
+    "description": "Learn how to travel with confidence and safety.",
+    "stats": {
+      "videos": "Videos",
+      "lessons": "Lessons",
+      "progress": "Progress"
+    },
+    "lessonsTitle": "Available Lessons",
+    "video": "Video",
+    "interactive": "Interactive",
+    "review": "Review",
+    "start": "Start",
+    "achievementsTitle": "Achievements",
+    "earned": "Earned",
+    "lessons": {
+      "planning": {
+        "title": "Trip Planning",
+        "description": "Learn how to plan a successful trip."
+      },
+      "packing": {
+        "title": "Packing",
+        "description": "Tips for packing your bag correctly."
+      },
+      "rights": {
+        "title": "Traveler Rights",
+        "description": "Learn about your rights as a traveler with disabilities."
+      },
+      "safety": {
+        "title": "Safety While Traveling",
+        "description": "How to stay safe while traveling."
+      }
+    },
+    "achievements": {
+      "firstLesson": "First Lesson",
+      "halfway": "Halfway",
+      "complete": "Complete"
+    }
+  },
+  "Profile": {
+    "title": "My Profile",
+    "tabs": {
+      "overview": "Overview",
+      "disability": "Disability",
+      "travel": "Travel",
+      "rewards": "Rewards"
+    },
+    "overview": {
+      "personalInfo": {
+        "title": "Personal Information",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "edit": "Edit"
+      },
+      "digitalPassport": {
+        "title": "Digital Passport",
+        "description": "View and manage your health passport.",
+        "view": "View Passport"
+      }
+    },
+    "disability": {
+      "title": "Disability Information",
+      "type": "Disability Type",
+      "assistiveDevices": "Assistive Devices",
+      "preferences": "Travel Preferences",
+      "edit": "Edit"
+    },
+    "travel": {
+      "history": {
+        "title": "Travel History",
+        "description": "Your previous trips"
+      },
+      "reviews": {
+        "title": "My Reviews",
+        "description": "Reviews you've written"
+      }
+    },
+    "rewards": {
+      "title": "Rewards System",
+      "points": "points",
+      "nextLevel": "Next Level",
+      "badges": "Badges",
+      "reviews": "Reviews",
+      "trips": "Trips"
+    }
+  },
+  "Destinations360": {
+    "title": "Explore Destinations 360°",
+    "description": "Explore destinations with 360-degree virtual tours.",
+    "view360": "View 360°",
+    "accessibilityFeatures": "Accessibility Features",
+    "explore": "Explore",
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Choose Destination",
+        "description": "Select the destination you want to explore."
+      },
+      "step2": {
+        "title": "Explore 360°",
+        "description": "Use the virtual tour to explore the place."
+      },
+      "step3": {
+        "title": "Book",
+        "description": "Book your place after exploring."
+      }
+    },
+    "destinations": {
+      "doha": {
+        "name": "Doha",
+        "location": "Qatar",
+        "wheelchair": "Wheelchair Access",
+        "visual": "Visual Support",
+        "hearing": "Hearing Support"
+      },
+      "dubai": {
+        "name": "Dubai",
+        "location": "United Arab Emirates",
+        "wheelchair": "Wheelchair Access",
+        "visual": "Visual Support"
+      },
+      "istanbul": {
+        "name": "Istanbul",
+        "location": "Turkey",
+        "wheelchair": "Wheelchair Access",
+        "hearing": "Hearing Support"
+      }
+    }
   }
 }

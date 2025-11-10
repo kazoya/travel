@@ -15,6 +15,15 @@ export const pathnames = {
   '/hosts': '/hosts',
   '/translate': '/translate',
   '/passport': '/passport',
+  '/cultural-communication': '/cultural-communication',
+  '/travel-bag': '/travel-bag',
+  '/emergency': '/emergency',
+  '/booking': '/booking',
+  '/training': '/training',
+  '/companion-auth': '/companion-auth',
+  '/academy': '/academy',
+  '/profile': '/profile',
+  '/destinations-360': '/destinations-360',
 };
  
 export const {Link, redirect, usePathname, useRouter} =

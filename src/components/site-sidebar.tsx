@@ -16,6 +16,15 @@ import {
   Home,
   Map,
   Plane,
+  Globe,
+  Luggage,
+  AlertTriangle,
+  Calendar,
+  GraduationCap,
+  UserPlus,
+  Award,
+  User,
+  Eye,
 } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
@@ -29,10 +38,19 @@ export function SiteSidebar() {
     { href: "/trip-planner", label: t('tripPlanner'), icon: <Plane /> },
     { href: "/assistant", label: t('smartAssistant'), icon: <Bot /> },
     { href: "/maps", label: t('accessibleMaps'), icon: <Map /> },
+    { href: "/destinations-360", label: t('destinations360'), icon: <Eye /> },
     { href: "/support", label: t('supportDirectory'), icon: <BookUser /> },
     { href: "/hosts", label: t('solidarityHosts'), icon: <HeartHandshake /> },
     { href: "/translate", label: t('signTranslator'), icon: <Hand /> },
     { href: "/passport", label: t('healthPassport'), icon: <Fingerprint /> },
+    { href: "/cultural-communication", label: t('culturalCommunication'), icon: <Globe /> },
+    { href: "/travel-bag", label: t('travelBag'), icon: <Luggage /> },
+    { href: "/booking", label: t('booking'), icon: <Calendar /> },
+    { href: "/emergency", label: t('emergency'), icon: <AlertTriangle /> },
+    { href: "/academy", label: t('academy'), icon: <Award /> },
+    { href: "/training", label: t('training'), icon: <GraduationCap /> },
+    { href: "/companion-auth", label: t('companionAuth'), icon: <UserPlus /> },
+    { href: "/profile", label: t('profile'), icon: <User /> },
   ];
 
   const isLinkActive = (href: string) => {

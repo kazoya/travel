@@ -14,14 +14,29 @@ import {
   Hand,
   Fingerprint,
   ArrowRight,
+  Globe,
+  Luggage,
+  Eye,
+  Calendar,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import Image from "next/image";
 import { UserButton } from "@/components/user-button";
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
-export default async function Home() {
+export default async function Home({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('Home');
 
   const features = [
@@ -66,6 +81,36 @@ export default async function Home() {
       title: t('features.healthPassport.title'),
       description: t('features.healthPassport.description'),
       href: "/passport",
+    },
+    {
+      icon: <Luggage className="h-8 w-8 text-primary" />,
+      title: t('features.luggage.title'),
+      description: t('features.luggage.description'),
+      href: "/travel-bag",
+    },
+    {
+      icon: <Eye className="h-8 w-8 text-primary" />,
+      title: t('features.destinations360.title'),
+      description: t('features.destinations360.description'),
+      href: "/destinations-360",
+    },
+    {
+      icon: <Calendar className="h-8 w-8 text-primary" />,
+      title: t('features.booking.title'),
+      description: t('features.booking.description'),
+      href: "/booking",
+    },
+    {
+      icon: <Globe className="h-8 w-8 text-primary" />,
+      title: t('features.culturalCommunication.title'),
+      description: t('features.culturalCommunication.description'),
+      href: "/cultural-communication",
+    },
+    {
+      icon: <Award className="h-8 w-8 text-primary" />,
+      title: t('features.academy.title'),
+      description: t('features.academy.description'),
+      href: "/academy",
     },
   ];
 
