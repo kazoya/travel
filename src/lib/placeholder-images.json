@@ -1,0 +1,64 @@
+{
+  "placeholderImages": [
+    {
+      "id": "host1",
+      "description": "Profile picture of a solidarity host named Alex",
+      "imageUrl": "https://images.unsplash.com/photo-1559695034-cd3396fcf29b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cG9ydHJhaXQlMjBwZXJzb258ZW58MHx8fHwxNzYxMTYxNjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait person"
+    },
+    {
+      "id": "host2",
+      "description": "Profile picture of a solidarity host named Maria",
+      "imageUrl": "https://images.unsplash.com/photo-1669844444850-5acd7e8c71c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwb3J0cmFpdCUyMHdvbWFufGVufDB8fHx8MTc2MTE1MDkzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait woman"
+    },
+    {
+      "id": "host3",
+      "description": "Profile picture of a solidarity host named Chen",
+      "imageUrl": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2MTE3NzU2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "host4",
+      "description": "Profile picture of a solidarity host named Fatima",
+      "imageUrl": "https://images.unsplash.com/photo-1594369428909-cf575675ca9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMGZhY2V8ZW58MHx8fHwxNzYxMTQ1OTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman face"
+    },
+    {
+      "id": "host5",
+      "description": "Profile picture of a solidarity host named David",
+      "imageUrl": "https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjExNDUzMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "host6",
+      "description": "Profile picture of a solidarity host named Sofia",
+      "imageUrl": "https://images.unsplash.com/photo-1542353436-312f0e1f67ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjBoYXBweXxlbnwwfHx8fDE3NjExOTk4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person happy"
+    },
+    {
+      "id": "map_amman",
+      "description": "Illustrative map of Amman, Jordan",
+      "imageUrl": "https://images.unsplash.com/photo-1677967574127-e5a46ef804df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxBbW1hbiUyMGNpdHl8ZW58MHx8fHwxNzYyNzA2NjgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Amman city"
+    },
+    {
+      "id": "map_petra",
+      "description": "Illustrative map of Petra, Jordan",
+      "imageUrl": "https://images.unsplash.com/photo-1714581732823-cc9afcfd77db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxQZXRyYSUyMEpvcmRhbnxlbnwwfHx8fDE3NjI3MDY2ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Petra Jordan"
+    },
+    {
+      "id": "map_wadi_rum",
+      "description": "Illustrative map of Wadi Rum, Jordan",
+      "imageUrl": "https://images.unsplash.com/photo-1597245476963-1df51ad92718?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxXYWRpJTIwUnVtfGVufDB8fHx8MTc2MjcwNjY4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Wadi Rum"
+    },
+    {
+      "id": "map_jerash",
+      "description": "Illustrative map of Jerash, Jordan",
+      "imageUrl": "https://images.unsplash.com/photo-1711378154447-97f7b0379c87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxKZXJhc2glMjBydWluc3xlbnwwfHx8fDE3NjI3MDY2ODF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Jerash ruins"
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the Inclusive Voyager platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "disabilityInfo": {
+          "type": "string",
+          "description": "Information about the user's disability and specific needs."
+        },
+        "accessibilityPreferences": {
+          "type": "string",
+          "description": "User's preferred accessibility settings (e.g., font size, contrast)."
+        },
+        "emergencyContactIds": {
+          "type": "array",
+          "description": "References to EmergencyContacts. (Relationship: User 1:N EmergencyContact)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ]
+    },
+    "EmergencyContact": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "EmergencyContact",
+      "type": "object",
+      "description": "Represents an emergency contact for a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the emergency contact."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N EmergencyContact)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Emergency contact's name."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Emergency contact's phone number."
+        },
+        "relationship": {
+          "type": "string",
+          "description": "Relationship to the user (e.g., parent, spouse, friend)."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "name",
+        "phoneNumber"
+      ]
+    },
+    "Trip": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Trip",
+      "type": "object",
+      "description": "Represents a travel itinerary planned by the user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the trip."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Trip)"
+        },
+        "destination": {
+          "type": "string",
+          "description": "The destination of the trip."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "The start date of the trip.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "The end date of the trip.",
+          "format": "date-time"
+        },
+        "budget": {
+          "type": "number",
+          "description": "The budget for the trip."
+        },
+        "disabilityType": {
+          "type": "string",
+          "description": "The type of disability the trip is planned for."
+        },
+        "itineraryItems": {
+          "type": "array",
+          "description": "References to ItineraryItems. (Relationship: Trip 1:N ItineraryItem)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "destination",
+        "startDate",
+        "endDate"
+      ]
+    },
+    "ItineraryItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ItineraryItem",
+      "type": "object",
+      "description": "Represents an individual item within a trip itinerary.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the itinerary item."
+        },
+        "tripId": {
+          "type": "string",
+          "description": "Reference to Trip. (Relationship: Trip 1:N ItineraryItem)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the itinerary item (e.g., 'Visit the museum')."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the itinerary item."
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the itinerary item."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "Start time of the itinerary item.",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "End time of the itinerary item.",
+          "format": "date-time"
+        },
+        "accessibilityInfo": {
+          "type": "string",
+          "description": "Accessibility information specific to this itinerary item."
+        }
+      },
+      "required": [
+        "id",
+        "tripId",
+        "name",
+        "location"
+      ]
+    },
+    "SolidarityHost": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "SolidarityHost",
+      "type": "object",
+      "description": "Represents a local volunteer offering assistance to travelers.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the solidarity host."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N SolidarityHost)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Solidarity host's name."
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Solidarity host's contact information."
+        },
+        "languages": {
+          "type": "array",
+          "description": "Languages spoken by the solidarity host.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "availability": {
+          "type": "string",
+          "description": "Solidarity host's availability schedule."
+        },
+        "specializations": {
+          "type": "array",
+          "description": "Disability specializations the host is trained in. References disability types.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "name",
+        "contactInfo"
+      ]
+    },
+    "SupportOrganization": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "SupportOrganization",
+      "type": "object",
+      "description": "Represents a local support organization for travelers with disabilities.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the support organization."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the support organization."
+        },
+        "contactInfo": {
+          "type": "string",
+          "description": "Support organization's contact information."
+        },
+        "address": {
+          "type": "string",
+          "description": "Support organization's address."
+        },
+        "servicesOffered": {
+          "type": "string",
+          "description": "Description of the services offered by the organization."
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the support organization."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "contactInfo",
+        "location"
+      ]
+    },
+    "Location": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Location",
+      "type": "object",
+      "description": "Represents a physical location with accessibility information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the location."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the location (e.g., 'Museum of Islamic Art')."
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Latitude coordinate of the location."
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Longitude coordinate of the location."
+        },
+        "accessibilityDetails": {
+          "type": "string",
+          "description": "Detailed accessibility information about the location (e.g., ramps, elevators, accessible restrooms)."
+        },
+        "supportOrganizationIds": {
+          "type": "array",
+          "description": "References to SupportOrganizations. (Relationship: Location 1:N SupportOrganization)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "latitude",
+        "longitude"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous",
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information.  The 'userId' is used for path-based ownership.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/emergency_contacts/{emergencyContactId}",
+        "definition": {
+          "entityName": "EmergencyContact",
+          "schema": {
+            "$ref": "#/backend/entities/EmergencyContact"
+          },
+          "description": "Stores emergency contact information for a user. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "emergencyContactId",
+              "description": "The unique identifier of the emergency contact."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/trips/{tripId}",
+        "definition": {
+          "entityName": "Trip",
+          "schema": {
+            "$ref": "#/backend/entities/Trip"
+          },
+          "description": "Stores trip information for a user. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "tripId",
+              "description": "The unique identifier of the trip."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/trips/{tripId}/itinerary_items/{itineraryItemId}",
+        "definition": {
+          "entityName": "ItineraryItem",
+          "schema": {
+            "$ref": "#/backend/entities/ItineraryItem"
+          },
+          "description": "Stores itinerary items for a specific trip. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "tripId",
+              "description": "The unique identifier of the trip."
+            },
+            {
+              "name": "itineraryItemId",
+              "description": "The unique identifier of the itinerary item."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/solidarity_hosts/{solidarityHostId}",
+        "definition": {
+          "entityName": "SolidarityHost",
+          "schema": {
+            "$ref": "#/backend/entities/SolidarityHost"
+          },
+          "description": "Stores solidarity host information. Includes denormalized 'userId' for authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "solidarityHostId",
+              "description": "The unique identifier of the solidarity host."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/support_organizations/{supportOrganizationId}",
+        "definition": {
+          "entityName": "SupportOrganization",
+          "schema": {
+            "$ref": "#/backend/entities/SupportOrganization"
+          },
+          "description": "Stores information about support organizations.",
+          "params": [
+            {
+              "name": "supportOrganizationId",
+              "description": "The unique identifier of the support organization."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/locations/{locationId}",
+        "definition": {
+          "entityName": "Location",
+          "schema": {
+            "$ref": "#/backend/entities/Location"
+          },
+          "description": "Stores information about locations.",
+          "params": [
+            {
+              "name": "locationId",
+              "description": "The unique identifier of the location."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to ensure data security, scalability, and efficient querying, while adhering to the core design principles of Authorization Independence, Clarity of Intent, DBAC, and QAPs. It leverages denormalization to avoid hierarchical authorization dependencies and structural segregation to simplify security rules. Path-based ownership is employed for user-owned data, and the membership map pattern is used for collaborative data (though not explicitly needed here based on the entity relationships provided).  Given the requirement for personalized experiences and accessibility, the user document directly contains accessibility preferences. The emergency system requirement implies the need to directly access user data and trigger actions, which fits well with the proposed structure.\n\nThe structure facilitates the required QAPs by segregating data based on ownership and access needs. User-specific data (trips, emergency contacts, solidarity hosts) are stored under the `/users/{userId}` path, enabling secure list operations based on the authenticated user's ID.  The `SupportOrganization` and `Location` collections are top-level, allowing for efficient global queries.  The design anticipates the use of Firestore indexes to optimize queries based on location, disability type, and other relevant fields, supporting efficient data retrieval for the personalized trip planner, accessible maps, and rights and support directory features.\n\nAuthorization Independence is achieved by storing the `userId` within each subcollection document (EmergencyContact, Trip, ItineraryItem, SolidarityHost). This eliminates the need for `get()` calls to parent documents in security rules, enabling atomic operations and improving security rule performance.  For example, to create an `ItineraryItem`, there is no need to verify the existence or attributes of the parent `Trip` document; the rule can simply verify that `request.auth.uid == resource.data.userId`."
+  }
+}

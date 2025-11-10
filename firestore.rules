@@ -1,0 +1,183 @@
+/**
+ * @file Firestore Security Rules
+ * @description This ruleset enforces a strict user-ownership model for personal data (users, emergency contacts, trips, itinerary items, solidarity hosts).
+ * Top-level collections like `support_organizations` and `locations` are publicly readable but not writable in this prototype.
+ * All user-specific data is nested under `/users/{userId}`, and ownership is validated using the `isOwner(userId)` function.
+ * Authorization Independence is achieved by storing the `userId` within each subcollection document.
+ * To simplify security rules, data required for authorization (e.g., ownership) is denormalized directly onto the documents being secured.
+ *
+ * Key Security Decisions:
+ * - Users can only access their own data.
+ * - Listing of support organizations and locations is public.
+ * - Write access to support organizations and locations is denied in this prototype.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Secure user profile information. Only the authenticated user can read or write their own profile.
+     * @path /users/{userId}
+     * @allow (create, update, delete, get) if the user's ID matches the requested userId.
+     * @deny (create, update, delete, get) if the user's ID does not match the requested userId.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if false;
+      allow create: if isOwner(userId) && request.resource.data.id == request.auth.uid;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Secure emergency contact information for a user. Only the owner can read or write emergency contacts for their profile.
+     * @path /users/{userId}/emergency_contacts/{emergencyContactId}
+     * @allow (create, update, delete, get) if the user's ID matches the requested userId.
+     * @deny (create, update, delete, get) if the user's ID does not match the requested userId.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId}/emergency_contacts/{emergencyContactId} {
+       function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Secure trip information for a user. Only the owner can read or write trips for their profile.
+     * @path /users/{userId}/trips/{tripId}
+     * @allow (create, update, delete, get) if the user's ID matches the requested userId.
+     * @deny (create, update, delete, get) if the user's ID does not match the requested userId.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId}/trips/{tripId} {
+       function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Secure itinerary item information for a trip. Only the owner of the trip can read or write itinerary items.
+     * @path /users/{userId}/trips/{tripId}/itinerary_items/{itineraryItemId}
+     * @allow (create, update, delete, get) if the user's ID matches the requested userId.
+     * @deny (create, update, delete, get) if the user's ID does not match the requested userId.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId}/trips/{tripId}/itinerary_items/{itineraryItemId} {
+       function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Secure solidarity host information. Only the owner can read or write solidarity hosts for their profile.
+     * @path /users/{userId}/solidarity_hosts/{solidarityHostId}
+     * @allow (create, update, delete, get) if the user's ID matches the requested userId.
+     * @deny (create, update, delete, get) if the user's ID does not match the requested userId.
+     * @principle Enforces document ownership for all operations.
+     */
+    match /users/{userId}/solidarity_hosts/{solidarityHostId} {
+       function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return isSignedIn() && request.auth.uid == userId;
+      }
+
+      function isExistingOwner(userId) {
+        return isOwner(userId) && resource != null;
+      }
+
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.userId == request.auth.uid;
+      allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Allows public read access to support organization information. Write access is denied in this prototype.
+     * @path /support_organizations/{supportOrganizationId}
+     * @allow (get, list) to anyone.
+     * @deny (create, update, delete) to everyone.
+     * @principle Allows public read access but restricts write access.
+     */
+    match /support_organizations/{supportOrganizationId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows public read access to location information. Write access is denied in this prototype.
+     * @path /locations/{locationId}
+     * @allow (get, list) to anyone.
+     * @deny (create, update, delete) to everyone.
+     * @principle Allows public read access but restricts write access.
+     */
+    match /locations/{locationId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

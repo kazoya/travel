@@ -1,0 +1,147 @@
+{
+  "Home": {
+    "mainHeading": "A Journey Without Limits",
+    "subheading": "Barrier-free travel for everyone. Plan, explore, and connect with confidence.",
+    "planTripButton": "Plan Your Trip",
+    "signInButton": "Sign In with Google",
+    "features": {
+      "tripPlanner": {
+        "title": "Personalized Trip Planner",
+        "description": "Tailored itineraries based on your needs."
+      },
+      "smartAssistant": {
+        "title": "Smart Travel Assistant",
+        "description": "Get instant answers from our AI chatbot."
+      },
+      "accessibleMaps": {
+        "title": "Accessible Maps",
+        "description": "Find accessible routes and places."
+      },
+      "supportDirectory": {
+        "title": "Support Directory",
+        "description": "Access rights info and local support."
+      },
+      "solidarityHosts": {
+        "title": "Solidarity Hosts",
+        "description": "Connect with local volunteers."
+      },
+      "signTranslator": {
+        "title": "Sign Language Translator",
+        "description": "Real-time sign language translation."
+      },
+      "healthPassport": {
+        "title": "Digital Health Passport",
+        "description": "Manage your health info securely."
+      }
+    }
+  },
+  "SiteHeader": {
+    "title": "A Journey Without Limits"
+  },
+  "SOS": {
+    "sosButton": "SOS",
+    "title": "Activate Emergency SOS?",
+    "description": "This will immediately send your location and health passport details to your emergency contacts. Only use this in a genuine emergency.",
+    "cancel": "Cancel",
+    "confirm": "Confirm & Send Alert"
+  },
+  "Sidebar": {
+    "home": "Home",
+    "tripPlanner": "Trip Planner",
+    "smartAssistant": "Smart Assistant",
+    "accessibleMaps": "Accessible Maps",
+    "supportDirectory": "Support Directory",
+    "solidarityHosts": "Solidarity Hosts",
+    "signTranslator": "Sign Translator",
+    "healthPassport": "Health Passport"
+  },
+  "TripPlanner": {
+    "title": "Personalized Trip Planner",
+    "description": "Let our AI craft the perfect accessible journey for you.",
+    "formTitle": "Create Your Itinerary",
+    "formDescription": "Fill in the details below to generate a personalized travel plan.",
+    "disabilityType": "Disability Type",
+    "disabilityTypePlaceholder": "e.g., Wheelchair user, Visually impaired",
+    "budget": "Budget",
+    "budgetPlaceholder": "e.g., $2000 USD",
+    "destination": "Destination",
+    "destinationPlaceholder": "e.g., Doha, Qatar",
+    "tripDuration": "Trip Duration",
+    "tripDurationPlaceholder": "e.g., 7 days",
+    "interests": "Interests",
+    "interestsPlaceholder": "e.g., Museums, nature, local cuisine, shopping",
+    "generateButton": "Generate Itinerary",
+    "generatingButton": "Generating...",
+    "resultTitle": "Your Personalized Itinerary",
+    "resultDescription": "Here is a travel plan designed just for you."
+  },
+  "Assistant": {
+    "title": "Smart Travel Assistant",
+    "description": "Your AI-powered guide for accessible travel.",
+    "placeholder": "Ask about accessible hotels, transport, etc."
+  },
+  "Maps": {
+    "title": "Accessible Maps",
+    "description": "Explore accessible routes and points of interest in Qatar.",
+    "keyFeatures": "Key Accessible Features"
+  },
+  "Support": {
+    "title": "Rights & Support Directory",
+    "description": "Find local rights information and support organizations.",
+    "formTitle": "Find Support",
+    "formDescription": "Enter your location and disability to find relevant information.",
+    "location": "Location",
+    "locationPlaceholder": "e.g., Doha, Qatar",
+    "disabilityType": "Disability Type",
+    "disabilityTypePlaceholder": "e.g., Autism Spectrum",
+    "specificQuestion": "Specific Question (Optional)",
+    "specificQuestionPlaceholder": "e.g., rights in public transport",
+    "findInfoButton": "Find Information",
+    "searchingButton": "Searching...",
+    "resultsTitle": "Your Support Information",
+    "rightsInfo": "Rights Information",
+    "supportOrgs": "Support Organizations"
+  },
+  "Hosts": {
+    "title": "Solidarity Hosts",
+    "description": "Connect with friendly local volunteers for assistance and companionship.",
+    "speaks": "Speaks",
+    "connect": "Connect"
+  },
+  "Translate": {
+    "title": "Sign Language Translator",
+    "description": "Translate spoken or written language into sign language visuals.",
+    "formTitle": "Translate Text",
+    "formDescription": "Enter the text you want to see translated into sign language.",
+    "textToTranslate": "Text to Translate",
+    "textToTranslatePlaceholder": "e.g., Hello, how are you?",
+    "translateButton": "Translate",
+    "translatingButton": "Translating...",
+    "resultTitle": "Sign Language Representation",
+    "resultDescription": "A visual representation of the translated text.",
+    "videoPlaceholder": "Sign language video placeholder",
+    "videoDescription": "AI Video Description:"
+  },
+  "Passport": {
+    "title": "Digital Health Passport",
+    "description": "Securely store and manage your essential information for travel.",
+    "formTitle": "Your Information",
+    "formDescription": "This data can be shared with airlines and hotels to ensure your needs are met. It is always kept private and secure.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your full legal name",
+    "disabilityInfo": "Disability Information & Needs",
+    "disabilityInfoPlaceholder": "e.g., I am a wheelchair user and require step-free access. I have a hearing impairment and need visual alerts.",
+    "disabilityInfoDescription": "Describe your condition and any specific accessibility requirements.",
+    "medicalNeeds": "Medical Needs & Allergies (Optional)",
+    "medicalNeedsPlaceholder": "e.g., Allergic to peanuts. Require access to refrigeration for medication.",
+    "emergencyContact": "Emergency Contact",
+    "contactName": "Contact Name",
+    "contactNamePlaceholder": "e.g., Jane Doe",
+    "contactPhone": "Contact Phone",
+    "saveButton": "Save Passport"
+  },
+  "ThemeToggle": {
+    "default": "Default",
+    "highContrast": "High Contrast"
+  }
+}

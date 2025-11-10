@@ -1,0 +1,167 @@
+{
+  "Home": {
+    "mainHeading": "سفر بلا حدود",
+    "subheading": "خطط رحلتك بثقة. سافر بلا حواجز.",
+    "planTripButton": "خطط لرحلتك",
+    "signInButton": "تسجيل الدخول / مستخدم جديد",
+    "smartSearchLabel": "إلى أين تريد أن تسافر؟",
+    "smartSearchPlaceholder": "حدد وجهتك ونوع الإعاقة، ودعنا نساعدك بخطة كاملة.",
+    "features": {
+      "tripPlanner": {
+        "title": "خطط لرحلتك",
+        "description": "مسارات رحلات مصممة خصيصًا لاحتياجاتك."
+      },
+      "smartAssistant": {
+        "title": "مساعد السفر",
+        "description": "احصل على إجابات فورية من روبوت الدردشة الذكي."
+      },
+      "accessibleMaps": {
+        "title": "استعرض الوجهات",
+        "description": "ابحث عن طرق وأماكن يسهل الوصول إليها."
+      },
+      "supportDirectory": {
+        "title": "دليل الدعم",
+        "description": "احصل على معلومات حول الحقوق والدعم المحلي."
+      },
+      "solidarityHosts": {
+        "title": "السفر مع مرافق",
+        "description": "تواصل مع متطوعين محليين."
+      },
+      "signTranslator": {
+        "title": "مترجم لغة الإشارة",
+        "description": "ترجمة فورية للغة الإشارة."
+      },
+      "healthPassport": {
+        "title": "إصدار جواز سفر ذوي الإعاقة",
+        "description": "قم بإدارة معلوماتك الصحية بأمان."
+      },
+      "luggage": {
+        "title": "تحضير الحقيبة",
+        "description": "قوائم ذكية لمساعدتك على حزم أمتعتك."
+      }
+    },
+    "recommendationsTitle": "توصيات وعروض",
+    "destinationsTitle": "وجهات مضمونة الوصول",
+    "experiencesTitle": "تجارب من مسافرين",
+    "discountsTitle": "خصومات للمستخدمين النشطين"
+  },
+  "SiteHeader": {
+    "title": "سفر بلا حدود",
+    "home": "الرئيسية",
+    "search": "البحث عن رحلة",
+    "passport": "جواز السفر الرقمي",
+    "services": "خدماتي",
+    "support": "الدعم"
+  },
+  "FloatingAssistant": {
+    "sos": "SOS",
+    "assistant": "مساعد ذكي",
+    "displayMode": "تبديل وضع العرض"
+  },
+  "SOS": {
+    "sosButton": "الطوارئ",
+    "title": "تفعيل نداء الطوارئ؟",
+    "description": "سيؤدي هذا إلى إرسال موقعك وتفاصيل جواز سفرك الصحي على الفور إلى جهات الاتصال في حالات الطوارئ. استخدم هذا فقط في حالة طوارئ حقيقية.",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد وإرسال التنبيه"
+  },
+  "Sidebar": {
+    "home": "الرئيسية",
+    "tripPlanner": "مخطط الرحلات",
+    "smartAssistant": "المساعد الذكي",
+    "accessibleMaps": "الخرائط المهيأة",
+    "supportDirectory": "دليل الدعم",
+    "solidarityHosts": "مضيفون متضامنون",
+    "signTranslator": "مترجم الإشارة",
+    "healthPassport": "الجواز الصحي"
+  },
+  "TripPlanner": {
+    "title": "مخطط الرحلات الشخصي",
+    "description": "دع الذكاء الاصطناعي يصمم لك الرحلة المثالية التي يسهل الوصول إليها.",
+    "formTitle": "أنشئ خط سير رحلتك",
+    "formDescription": "املأ التفاصيل أدناه لإنشاء خطة سفر مخصصة.",
+    "disabilityType": "نوع الإعاقة",
+    "disabilityTypePlaceholder": "مثال: مستخدم كرسي متحرك، ضعيف البصر",
+    "budget": "الميزانية",
+    "budgetPlaceholder": "مثال: 2000 دولار أمريكي",
+    "destination": "الوجهة",
+    "destinationPlaceholder": "مثال: الدوحة، قطر",
+    "tripDuration": "مدة الرحلة",
+    "tripDurationPlaceholder": "مثال: 7 أيام",
+    "interests": "الاهتمامات",
+    "interestsPlaceholder": "مثال: متاحف، طبيعة، مأكولات محلية، تسوق",
+    "generateButton": "إنشاء خط سير الرحلة",
+    "generatingButton": "جارٍ الإنشاء...",
+    "resultTitle": "خط سير رحلتك المخصص",
+    "resultDescription": "ها هي خطة سفر مصممة خصيصًا لك."
+  },
+  "Assistant": {
+    "title": "مساعد السفر الذكي",
+    "description": "دليلك المدعوم بالذكاء الاصطناعي للسفر الميسر.",
+    "placeholder": "اسأل عن الفنادق ووسائل النقل المهيأة، إلخ."
+  },
+  "Maps": {
+    "title": "الخرائط المهيأة",
+    "description": "استكشف الطرق ونقاط الاهتمام التي يسهل الوصول إليها في قطر.",
+    "keyFeatures": "الميزات الرئيسية للتسهيلات"
+  },
+  "Support": {
+    "title": "دليل الحقوق والدعم",
+    "description": "ابحث عن معلومات الحقوق المحلية ومنظمات الدعم.",
+    "formTitle": "ابحث عن دعم",
+    "formDescription": "أدخل موقعك ونوع الإعاقة للعثور على المعلومات ذات الصلة.",
+    "location": "الموقع",
+    "locationPlaceholder": "مثال: الدوحة، قطر",
+    "disabilityType": "نوع الإعاقة",
+    "disabilityTypePlaceholder": "مثال: طيف التوحد",
+    "specificQuestion": "سؤال محدد (اختياري)",
+    "specificQuestionPlaceholder": "مثال: الحقوق في وسائل النقل العام",
+    "findInfoButton": "ابحث عن معلومات",
+    "searchingButton": "جارٍ البحث...",
+    "resultsTitle": "معلومات الدعم الخاصة بك",
+    "rightsInfo": "معلومات الحقوق",
+    "supportOrgs": "منظمات الدعم"
+  },
+  "Hosts": {
+    "title": "مضيفون متضامنون",
+    "description": "تواصل مع متطوعين محليين ودودين للحصول على المساعدة والرفقة.",
+    "speaks": "يتحدث",
+    "connect": "تواصل"
+  },
+  "Translate": {
+    "title": "مترجم لغة الإشارة",
+    "description": "ترجمة اللغة المنطوقة أو المكتوبة إلى صور مرئية للغة الإشارة.",
+    "formTitle": "ترجمة نص",
+    "formDescription": "أدخل النص الذي تريد رؤيته مترجماً إلى لغة الإشارة.",
+    "textToTranslate": "النص المراد ترجمته",
+    "textToTranslatePlaceholder": "مثال: مرحبًا، كيف حالك؟",
+    "translateButton": "ترجمة",
+    "translatingButton": "جارٍ الترجمة...",
+    "resultTitle": "تمثيل لغة الإشارة",
+    "resultDescription": "تمثيل مرئي للنص المترجم.",
+    "videoPlaceholder": "عنصر نائب لفيديو لغة الإشارة",
+    "videoDescription": "وصف الفيديو بالذكاء الاصطناعي:"
+  },
+  "Passport": {
+    "title": "جواز السفر الصحي الرقمي",
+    "description": "قم بتخزين وإدارة معلوماتك الأساسية للسفر بأمان.",
+    "formTitle": "معلوماتك",
+    "formDescription": "يمكن مشاركة هذه البيانات مع شركات الطيران والفنادق لضمان تلبية احتياجاتك. يتم الحفاظ على خصوصيتها وأمانها دائمًا.",
+    "fullName": "الاسم الكامل",
+    "fullNamePlaceholder": "اسمك القانوني الكامل",
+    "disabilityInfo": "معلومات واحتياجات الإعاقة",
+    "disabilityInfoPlaceholder": "مثال: أنا مستخدم كرسي متحرك وأحتاج إلى وصول بدون درجات. لدي ضعف في السمع وأحتاج إلى تنبيهات مرئية.",
+    "disabilityInfoDescription": "صف حالتك وأي متطلبات وصول محددة.",
+    "medicalNeeds": "الاحتياجات الطبية والحساسية (اختياري)",
+    "medicalNeedsPlaceholder": "مثال: حساسية من الفول السوداني. أحتاج إلى الوصول إلى التبريد للأدوية.",
+    "emergencyContact": "جهة اتصال للطوارئ",
+    "contactName": "اسم جهة الاتصال",
+    "contactNamePlaceholder": "مثال: جين دو",
+    "contactPhone": "هاتف جهة الاتصال",
+    "saveButton": "حفظ الجواز"
+  },
+  "ThemeToggle": {
+    "default": "الوضع الافتراضي",
+    "highContrast": "تباين عالٍ"
+  }
+}
