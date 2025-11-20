@@ -25,6 +25,7 @@ import {
   Award,
   User,
   Eye,
+  MapPin,
 } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
@@ -51,6 +52,7 @@ export function SiteSidebar() {
     { href: "/training", label: t('training'), icon: <GraduationCap /> },
     { href: "/companion-auth", label: t('companionAuth'), icon: <UserPlus /> },
     { href: "/profile", label: t('profile'), icon: <User /> },
+    { href: "/sitemap", label: t('sitemap'), icon: <MapPin /> },
   ];
 
   const isLinkActive = (href: string) => {

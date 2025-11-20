@@ -1,6 +1,6 @@
 import {createLocalizedPathnamesNavigation} from 'next-intl/navigation';
  
-export const locales = ['en', 'ar'] as const;
+export const locales = ['ar', 'en', 'de', 'fr'] as const;
  
 // The `pathnames` object holds pairs of internal
 // and external paths, separated by locale.
@@ -24,6 +24,7 @@ export const pathnames = {
   '/academy': '/academy',
   '/profile': '/profile',
   '/destinations-360': '/destinations-360',
+  '/sitemap': '/sitemap',
 };
  
 export const {Link, redirect, usePathname, useRouter} =

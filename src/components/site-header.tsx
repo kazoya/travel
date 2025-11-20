@@ -67,11 +67,17 @@ export function SiteHeader() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => handleLanguageChange('ar')}>
+                العربية
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
                 English
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleLanguageChange('ar')}>
-                العربية
+              <DropdownMenuItem onClick={() => handleLanguageChange('de')}>
+                Deutsch
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange('fr')}>
+                Français
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

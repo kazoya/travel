@@ -5,13 +5,68 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useTranslations } from 'next-intl';
-import { Luggage, Plus, CheckCircle2 } from "lucide-react";
+import { Luggage, Plus, CheckCircle2, MapPin, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 export default function TravelBagPage() {
   const t = useTranslations('TravelBag');
   const [items, setItems] = useState<Record<string, boolean>>({});
   const [newItem, setNewItem] = useState("");
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
+
+  const jordanDestinations = [
+    {
+      id: "amman",
+      name: t('jordanDestinations.amman.name'),
+      description: t('jordanDestinations.amman.description'),
+      image: "https://images.unsplash.com/photo-1677967574127-e5a46ef804df?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.amman.accessibility'),
+    },
+    {
+      id: "petra",
+      name: t('jordanDestinations.petra.name'),
+      description: t('jordanDestinations.petra.description'),
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.petra.accessibility'),
+    },
+    {
+      id: "wadirum",
+      name: t('jordanDestinations.wadirum.name'),
+      description: t('jordanDestinations.wadirum.description'),
+      image: "https://images.unsplash.com/photo-1597245476963-1df51ad92718?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.wadirum.accessibility'),
+    },
+    {
+      id: "jerash",
+      name: t('jordanDestinations.jerash.name'),
+      description: t('jordanDestinations.jerash.description'),
+      image: "https://images.unsplash.com/photo-1711378154447-97f7b0379c87?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.jerash.accessibility'),
+    },
+    {
+      id: "deadsea",
+      name: t('jordanDestinations.deadsea.name'),
+      description: t('jordanDestinations.deadsea.description'),
+      image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.deadsea.accessibility'),
+    },
+    {
+      id: "aqaba",
+      name: t('jordanDestinations.aqaba.name'),
+      description: t('jordanDestinations.aqaba.description'),
+      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop",
+      accessibility: t('jordanDestinations.aqaba.accessibility'),
+    },
+  ];
 
   const categories = [
     {
@@ -86,6 +141,45 @@ export default function TravelBagPage() {
             </span>
           </div>
         )}
+        <div className="mt-6">
+          <Dialog open={isDestinationsOpen} onOpenChange={setIsDestinationsOpen}>
+            <DialogTrigger asChild>
+              <Button size="lg" className="gap-2">
+                <MapPin className="h-5 w-5" />
+                {t('jordanDestinations.button')}
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>{t('jordanDestinations.title')}</DialogTitle>
+                <DialogDescription>{t('jordanDestinations.description')}</DialogDescription>
+              </DialogHeader>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {jordanDestinations.map((destination) => (
+                  <Card key={destination.id} className="overflow-hidden">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={destination.image}
+                        alt={destination.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle>{destination.name}</CardTitle>
+                      <CardDescription>{destination.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        <strong>{t('jordanDestinations.accessibilityLabel')}:</strong> {destination.accessibility}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
