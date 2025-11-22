@@ -6,12 +6,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, MapPin, Restroom, Umbrella, AlertCircle, Heart, Navigation } from "lucide-react";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
