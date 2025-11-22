@@ -3,28 +3,23 @@ import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
+  CardContent,
 } from "@/components/ui/card";
 import {
   Plane,
   Bot,
   Map,
-  BookUser,
   HeartHandshake,
-  Hand,
   Fingerprint,
-  ArrowRight,
-  Globe,
   Luggage,
-  Eye,
-  Calendar,
-  Award,
+  Star,
+  Users,
+  Gift,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import Image from "next/image";
-import { UserButton } from "@/components/user-button";
+import { HomeSearchBox } from "@/components/home-search-box";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -39,126 +34,179 @@ export default async function Home({
   setRequestLocale(locale);
   const t = await getTranslations('Home');
 
-  const features = [
+  // Main 6 features with larger icons
+  const mainFeatures = [
     {
-      icon: <Plane className="h-8 w-8 text-primary" />,
+      icon: <Plane className="h-12 w-12 text-primary" />,
       title: t('features.tripPlanner.title'),
-      description: t('features.tripPlanner.description'),
       href: "/trip-planner",
     },
     {
-      icon: <Bot className="h-8 w-8 text-primary" />,
-      title: t('features.smartAssistant.title'),
-      description: t('features.smartAssistant.description'),
-      href: "/assistant",
-    },
-    {
-      icon: <Map className="h-8 w-8 text-primary" />,
+      icon: <Map className="h-12 w-12 text-primary" />,
       title: t('features.accessibleMaps.title'),
-      description: t('features.accessibleMaps.description'),
       href: "/maps",
     },
     {
-      icon: <BookUser className="h-8 w-8 text-primary" />,
-      title: t('features.supportDirectory.title'),
-      description: t('features.supportDirectory.description'),
-      href: "/support",
+      icon: <Bot className="h-12 w-12 text-primary" />,
+      title: t('features.smartAssistant.title'),
+      href: "/assistant",
     },
     {
-      icon: <HeartHandshake className="h-8 w-8 text-primary" />,
-      title: t('features.solidarityHosts.title'),
-      description: t('features.solidarityHosts.description'),
-      href: "/hosts",
-    },
-    {
-      icon: <Hand className="h-8 w-8 text-primary" />,
-      title: t('features.signTranslator.title'),
-      description: t('features.signTranslator.description'),
-      href: "/translate",
-    },
-    {
-      icon: <Fingerprint className="h-8 w-8 text-primary" />,
-      title: t('features.healthPassport.title'),
-      description: t('features.healthPassport.description'),
-      href: "/passport",
-    },
-    {
-      icon: <Luggage className="h-8 w-8 text-primary" />,
+      icon: <Luggage className="h-12 w-12 text-primary" />,
       title: t('features.luggage.title'),
-      description: t('features.luggage.description'),
       href: "/travel-bag",
     },
     {
-      icon: <Eye className="h-8 w-8 text-primary" />,
-      title: t('features.destinations360.title'),
-      description: t('features.destinations360.description'),
-      href: "/destinations-360",
+      icon: <HeartHandshake className="h-12 w-12 text-primary" />,
+      title: t('features.solidarityHosts.title'),
+      href: "/hosts",
     },
     {
-      icon: <Calendar className="h-8 w-8 text-primary" />,
-      title: t('features.booking.title'),
-      description: t('features.booking.description'),
-      href: "/booking",
-    },
-    {
-      icon: <Globe className="h-8 w-8 text-primary" />,
-      title: t('features.culturalCommunication.title'),
-      description: t('features.culturalCommunication.description'),
-      href: "/cultural-communication",
-    },
-    {
-      icon: <Award className="h-8 w-8 text-primary" />,
-      title: t('features.academy.title'),
-      description: t('features.academy.description'),
-      href: "/academy",
+      icon: <Fingerprint className="h-12 w-12 text-primary" />,
+      title: t('features.healthPassport.title'),
+      href: "/passport",
     },
   ];
 
+  // Sample destinations
+  const destinations = [
+    { name: "عمان", rating: 4.8, image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" },
+    { name: "البتراء", rating: 4.9, image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400" },
+    { name: "وادي رم", rating: 4.7, image: "https://images.unsplash.com/photo-1544966503-7cc49efe91a3?w=400" },
+  ];
+
+  // Sample experiences
+  const experiences = [
+    { author: "أحمد محمد", text: "تجربة رائعة! المنصة ساعدتني في التخطيط لرحلتي بسهولة." },
+    { author: "فاطمة علي", text: "خدمة ممتازة، خاصة للمساعدة في العثور على أماكن مهيأة." },
+    { author: "خالد حسن", text: "جواز السفر الرقمي سهل حياتي كثيراً في المطارات." },
+  ];
+
   return (
-    <div className="flex flex-col items-center">
-       <section className="relative w-full text-center py-20 md:py-28 lg:py-36 overflow-hidden">
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section with Travel Image */}
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070"
-            alt="An inspiring landscape showing a person looking over a vast lake and mountains, representing travel and adventure."
+            alt={t('heroImageAlt')}
             fill
             className="object-cover"
             priority
-            data-ai-hint="travel landscape"
+            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
         </div>
-        <div className="relative z-10">
-          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white">
+        
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             {t('mainHeading')}
           </h1>
-          <p className="mx-auto mt-4 max-w-[700px] text-lg text-gray-200 md:text-xl">
+          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
             {t('subheading')}
           </p>
-          <div className="mt-8 flex justify-center gap-4">
-              <Button size="lg" asChild>
-                  <Link href="/trip-planner">{t('planTripButton')} <ArrowRight className="mx-2 h-5 w-5"/></Link>
-              </Button>
-              <UserButton />
-          </div>
+          
+          {/* Smart Search Box */}
+          <HomeSearchBox />
         </div>
       </section>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 py-12 px-4 md:px-0">
-        {features.map((feature) => (
-          <Link href={feature.href} key={feature.title} className="group">
-            <Card className="h-full transition-all duration-300 ease-in-out group-hover:border-primary group-hover:shadow-xl group-hover:-translate-y-2">
-              <CardHeader className="flex flex-col items-start gap-4 p-4">
-                {feature.icon}
-                <div>
-                    <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>
-                    <CardDescription className="mt-1">{feature.description}</CardDescription>
+      {/* Main Features - 6 Large Buttons */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+          {mainFeatures.map((feature, index) => (
+            <Link
+              key={index}
+              href={feature.href}
+              className="group"
+            >
+              <Card className="h-full transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-primary p-6 flex flex-col items-center justify-center gap-4 min-h-[180px]">
+                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  {feature.icon}
                 </div>
-              </CardHeader>
+                <CardTitle className="text-center text-base md:text-lg font-headline">
+                  {feature.title}
+                </CardTitle>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Accessible Destinations */}
+      <section className="container mx-auto px-4 py-12 bg-muted/30">
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center">
+          {t('destinationsTitle')}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {destinations.map((dest, index) => (
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="relative h-48">
+                <Image
+                  src={dest.image}
+                  alt={dest.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-lg">{dest.name}</h3>
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span>{dest.rating}</span>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
-          </Link>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Traveler Experiences */}
+      <section className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center">
+          {t('experiencesTitle')}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {experiences.map((exp, index) => (
+            <Card key={index} className="p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="h-8 w-8 text-primary" />
+                <div>
+                  <p className="font-bold">{exp.author}</p>
+                  <p className="text-sm text-muted-foreground">مسافر</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground">{exp.text}</p>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Recommendations & Discounts */}
+      <section className="container mx-auto px-4 py-12 bg-primary/5">
+        <h2 className="text-3xl font-bold font-headline mb-8 text-center">
+          {t('recommendationsTitle')}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="p-6">
+            <Gift className="h-10 w-10 text-primary mb-4" />
+            <h3 className="text-xl font-bold mb-2">{t('discountsTitle')}</h3>
+            <p className="text-muted-foreground">
+              احصل على خصومات حصرية للمستخدمين النشطين في المنصة
+            </p>
+          </Card>
+          <Card className="p-6">
+            <Star className="h-10 w-10 text-primary mb-4" />
+            <h3 className="text-xl font-bold mb-2">خدمات مضمونة</h3>
+            <p className="text-muted-foreground">
+              جميع الوجهات والخدمات مضمونة الوصول لذوي الإعاقة
+            </p>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 }

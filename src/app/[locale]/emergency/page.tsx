@@ -4,12 +4,15 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
-import { AlertTriangle, Phone, MapPin, Globe, FileText, User } from "lucide-react";
+import { AlertTriangle, Phone, MapPin, Globe, FileText, User, Mic, MicOff } from "lucide-react";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 export default function EmergencyPage() {
   const t = useTranslations('Emergency');
   const [location, setLocation] = useState<string>("");
+  const [isRecording, setIsRecording] = useState(false);
+  const [emergencyStatus, setEmergencyStatus] = useState<string>("");
+  const [currentLanguage, setCurrentLanguage] = useState<string>("ar");
 
   return (
     <div className="container mx-auto max-w-4xl">
@@ -73,10 +76,95 @@ export default function EmergencyPage() {
         <CardContent>
           <p className="text-sm text-muted-foreground mb-4">{t('language.description')}</p>
           <div className="flex gap-2 flex-wrap">
-            <Button variant="outline" size="sm">العربية</Button>
-            <Button variant="outline" size="sm">English</Button>
-            <Button variant="outline" size="sm">Français</Button>
-            <Button variant="outline" size="sm">Español</Button>
+            <Button 
+              variant={currentLanguage === "ar" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setCurrentLanguage("ar")}
+            >
+              العربية
+            </Button>
+            <Button 
+              variant={currentLanguage === "en" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setCurrentLanguage("en")}
+            >
+              English
+            </Button>
+            <Button 
+              variant={currentLanguage === "fr" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setCurrentLanguage("fr")}
+            >
+              Français
+            </Button>
+            <Button 
+              variant={currentLanguage === "es" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setCurrentLanguage("es")}
+            >
+              Español
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Emergency Status */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle>{t('status.title')}</CardTitle>
+          <CardDescription>{t('status.description')}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="flex gap-2">
+              <Button 
+                variant={emergencyStatus === "disability" ? "default" : "outline"}
+                onClick={() => setEmergencyStatus("disability")}
+              >
+                {t('status.disability')}
+              </Button>
+              <Button 
+                variant={emergencyStatus === "language" ? "default" : "outline"}
+                onClick={() => setEmergencyStatus("language")}
+              >
+                {t('status.language')}
+              </Button>
+              <Button 
+                variant={emergencyStatus === "urgent" ? "default" : "outline"}
+                onClick={() => setEmergencyStatus("urgent")}
+              >
+                {t('status.urgent')}
+              </Button>
+            </div>
+            
+            {/* Voice Recording */}
+            <div className="border rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium">{t('voiceMessage')}</span>
+                <Button
+                  variant={isRecording ? "destructive" : "outline"}
+                  size="sm"
+                  onClick={() => setIsRecording(!isRecording)}
+                >
+                  {isRecording ? (
+                    <>
+                      <MicOff className="h-4 w-4 mr-2" />
+                      {t('stopRecording')}
+                    </>
+                  ) : (
+                    <>
+                      <Mic className="h-4 w-4 mr-2" />
+                      {t('recordMessage')}
+                    </>
+                  )}
+                </Button>
+              </div>
+              {isRecording && (
+                <p className="text-xs text-muted-foreground animate-pulse">
+                  {t('recording')}
+                </p>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>

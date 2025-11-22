@@ -24,6 +24,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserButton } from "@/components/user-button";
+import { AccessibilitySettings } from "@/components/accessibility-settings";
+import { UserRegistration } from "@/components/user-registration";
 
 
 export function SiteHeader() {
@@ -57,7 +59,9 @@ export function SiteHeader() {
           </Link>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
+          <AccessibilitySettings />
           <UserButton />
+          <UserRegistration />
           <ThemeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

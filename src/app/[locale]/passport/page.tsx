@@ -24,6 +24,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslations } from 'next-intl';
+import { QRCodeSVG } from 'qrcode.react';
+import { useState } from "react";
+import { Download, QrCode } from "lucide-react";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name is required."),
@@ -36,6 +39,8 @@ const formSchema = z.object({
 export default function PassportPage() {
     const t = useTranslations('Passport');
     const { toast } = useToast();
+    const [passportData, setPassportData] = useState<z.infer<typeof formSchema> | null>(null);
+    const [showQR, setShowQR] = useState(false);
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -50,11 +55,21 @@ export default function PassportPage() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     // In a real app, this would save to a secure database.
-    console.log("Passport data to save:", values);
+    setPassportData(values);
+    setShowQR(true);
     // We are not using success toasts per instructions.
     // I will use a descriptive error toast if something were to go wrong.
     // toast({ title: "Passport Saved", description: "Your information has been securely updated." });
   }
+
+  const qrCodeValue = passportData 
+    ? JSON.stringify({
+        name: passportData.fullName,
+        disability: passportData.disabilityInfo,
+        emergency: passportData.emergencyContactPhone,
+        timestamp: new Date().toISOString(),
+      })
+    : "";
 
   return (
     <div className="container mx-auto max-w-3xl">
@@ -159,6 +174,59 @@ export default function PassportPage() {
           </form>
         </Form>
       </Card>
+
+      {/* Digital Passport Display with QR Code */}
+      {passportData && (
+        <Card className="mt-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <QrCode className="h-6 w-6" />
+              {t('digitalPassport')}
+            </CardTitle>
+            <CardDescription>{t('digitalPassportDesc')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Passport Info */}
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-bold text-lg mb-2">{t('passportInfo')}</h3>
+                  <div className="space-y-2 text-sm">
+                    <p><span className="font-semibold">{t('fullName')}:</span> {passportData.fullName}</p>
+                    <p><span className="font-semibold">{t('disabilityInfo')}:</span> {passportData.disabilityInfo}</p>
+                    {passportData.medicalNeeds && (
+                      <p><span className="font-semibold">{t('medicalNeeds')}:</span> {passportData.medicalNeeds}</p>
+                    )}
+                    <p><span className="font-semibold">{t('contactName')}:</span> {passportData.emergencyContactName}</p>
+                    <p><span className="font-semibold">{t('contactPhone')}:</span> {passportData.emergencyContactPhone}</p>
+                  </div>
+                </div>
+                <Button 
+                  variant="outline" 
+                  onClick={() => window.print()}
+                  className="w-full"
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  {t('printPassport')}
+                </Button>
+              </div>
+
+              {/* QR Code */}
+              <div className="flex flex-col items-center justify-center p-6 bg-muted/30 rounded-lg">
+                <h3 className="font-bold text-lg mb-4">{t('qrCode')}</h3>
+                {qrCodeValue && (
+                  <div className="p-4 bg-white rounded-lg">
+                    <QRCodeSVG value={qrCodeValue} size={200} />
+                  </div>
+                )}
+                <p className="text-xs text-muted-foreground mt-4 text-center">
+                  {t('qrCodeDesc')}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

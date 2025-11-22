@@ -59,7 +59,8 @@
     "recommendationsTitle": "توصيات وعروض",
     "destinationsTitle": "وجهات مضمونة الوصول",
     "experiencesTitle": "تجارب من مسافرين",
-    "discountsTitle": "خصومات للمستخدمين النشطين"
+    "discountsTitle": "خصومات للمستخدمين النشطين",
+    "heroImageAlt": "صورة ملهمة لشخص ينظر إلى منظر طبيعي واسع يمثل السفر والمغامرة"
   },
   "SiteHeader": {
     "title": "سفر بلا حدود",
@@ -141,7 +142,23 @@
   "Maps": {
     "title": "الخرائط المهيأة",
     "description": "استكشف الطرق ونقاط الاهتمام التي يسهل الوصول إليها في قطر.",
-    "keyFeatures": "الميزات الرئيسية للتسهيلات"
+    "keyFeatures": "الميزات الرئيسية للتسهيلات",
+    "nearestRestroom": "أقرب حمام",
+    "nearestRestroomDesc": "ابحث عن أقرب حمام مهيأ لذوي الإعاقة",
+    "accessibleRoutes": "مسارات مهيأة",
+    "accessibleRoutesDesc": "مسارات خالية من العوائق",
+    "restAreas": "أماكن الراحة",
+    "restAreasDesc": "أماكن مظللة للراحة",
+    "needRestNow": "أحتاج راحة الآن",
+    "needRestNowDesc": "ابحث عن أقرب مكان للراحة",
+    "findNow": "ابحث الآن",
+    "viewRoutes": "عرض المسارات",
+    "findRest": "ابحث عن راحة",
+    "findNearest": "ابحث عن الأقرب",
+    "stressLevel": "مستوى الإجهاد",
+    "stressLevelDesc": "راقب مستوى إجهادك أثناء الرحلة",
+    "currentLevel": "المستوى الحالي",
+    "updateLevel": "تحديث المستوى"
   },
   "Support": {
     "title": "دليل الحقوق والدعم",
@@ -196,7 +213,13 @@
     "contactName": "اسم جهة الاتصال",
     "contactNamePlaceholder": "مثال: جين دو",
     "contactPhone": "هاتف جهة الاتصال",
-    "saveButton": "حفظ الجواز"
+    "saveButton": "حفظ الجواز",
+    "digitalPassport": "جواز السفر الرقمي",
+    "digitalPassportDesc": "عرض جواز سفرك الرقمي مع رمز QR",
+    "passportInfo": "معلومات الجواز",
+    "qrCode": "رمز QR",
+    "qrCodeDesc": "امسح هذا الرمز في المطارات والفنادق للوصول السريع إلى معلوماتك",
+    "printPassport": "طباعة الجواز"
   },
   "ThemeToggle": {
     "default": "الوضع الافتراضي",
@@ -346,6 +369,17 @@
       "description": "عرض جواز سفرك الصحي الرقمي.",
       "viewButton": "عرض الجواز"
     },
+    "status": {
+      "title": "حالة الطوارئ",
+      "description": "حدد نوع حالتك",
+      "disability": "إعاقة",
+      "language": "لغة",
+      "urgent": "احتياج فوري"
+    },
+    "voiceMessage": "رسالة صوتية للطوارئ",
+    "recordMessage": "تسجيل رسالة",
+    "stopRecording": "إيقاف التسجيل",
+    "recording": "جارٍ التسجيل...",
     "sosButton": "SOS - الطوارئ",
     "sosDialog": {
       "title": "تفعيل نداء الطوارئ؟",
@@ -653,5 +687,32 @@
       "highContrast": "وضع تباين عالٍ متاح",
       "responsive": "تصميم متجاوب يعمل على جميع الأجهزة"
     }
+  },
+  "Accessibility": {
+    "title": "إعدادات إمكانية الوصول",
+    "description": "خصص تجربتك لتتناسب مع احتياجاتك",
+    "openSettings": "فتح إعدادات إمكانية الوصول",
+    "fontSize": "حجم الخط",
+    "highContrast": "وضع التباين العالي",
+    "textToSpeech": "قراءة النص بصوت",
+    "keyboardNavigation": "التنقل بلوحة المفاتيح",
+    "keyboardNavigationDesc": "استخدم Tab للتنقل، Enter للتفعيل، Esc للإغلاق"
+  },
+  "Registration": {
+    "title": "إنشاء حساب جديد",
+    "description": "سجل للحصول على تجربة سفر مخصصة",
+    "signUp": "تسجيل جديد",
+    "name": "الاسم",
+    "namePlaceholder": "أدخل اسمك الكامل",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "example@email.com",
+    "phone": "رقم الهاتف",
+    "phonePlaceholder": "+962 7XX XXX XXX",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "كلمة مرور قوية",
+    "createAccount": "إنشاء حساب",
+    "creating": "جارٍ الإنشاء...",
+    "error": "خطأ",
+    "errorDescription": "حدث خطأ أثناء إنشاء الحساب. يرجى المحاولة مرة أخرى."
   }
 }

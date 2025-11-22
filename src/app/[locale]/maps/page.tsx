@@ -7,10 +7,13 @@ import {
 } from "@/components/ui/accordion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2, MapPin } from "lucide-react";
+import { CheckCircle2, MapPin, Restroom, Umbrella, AlertCircle, Heart, Navigation } from "lucide-react";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { cn } from "@/lib/utils";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 const locations = [
   {
@@ -68,11 +71,99 @@ export default async function MapsPage({
   setRequestLocale(locale);
   const t = await getTranslations('Maps');
   return (
-    <div className="container mx-auto max-w-4xl">
+    <div className="container mx-auto max-w-6xl">
       <header className="text-center mb-8">
         <h1 className="font-headline text-3xl md:text-4xl font-bold">{t('title')}</h1>
         <p className="text-muted-foreground mt-2">{t('description')}</p>
       </header>
+
+      {/* Smart Maps Features - Stress & Comfort */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center gap-2">
+              <Restroom className="h-5 w-5 text-primary" />
+              {t('nearestRestroom')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">{t('nearestRestroomDesc')}</p>
+            <Button variant="outline" size="sm" className="mt-2 w-full">
+              {t('findNow')}
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center gap-2">
+              <Navigation className="h-5 w-5 text-primary" />
+              {t('accessibleRoutes')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">{t('accessibleRoutesDesc')}</p>
+            <Button variant="outline" size="sm" className="mt-2 w-full">
+              {t('viewRoutes')}
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="hover:shadow-lg transition-shadow">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center gap-2">
+              <Umbrella className="h-5 w-5 text-primary" />
+              {t('restAreas')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">{t('restAreasDesc')}</p>
+            <Button variant="outline" size="sm" className="mt-2 w-full">
+              {t('findRest')}
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card className="hover:shadow-lg transition-shadow border-primary/50">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base flex items-center gap-2">
+              <Heart className="h-5 w-5 text-destructive" />
+              {t('needRestNow')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">{t('needRestNowDesc')}</p>
+            <Button variant="destructive" size="sm" className="mt-2 w-full">
+              {t('findNearest')}
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Stress Level Indicator */}
+      <Card className="mb-8 bg-gradient-to-r from-primary/10 to-accent/10">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <AlertCircle className="h-5 w-5" />
+            {t('stressLevel')}
+          </CardTitle>
+          <CardDescription>{t('stressLevelDesc')}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center gap-4">
+            <div className="flex-1">
+              <div className="flex justify-between text-sm mb-2">
+                <span>{t('currentLevel')}</span>
+                <Badge variant="outline">متوسط</Badge>
+              </div>
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div className="h-full bg-primary w-1/2 transition-all"></div>
+              </div>
+            </div>
+            <Button variant="outline">{t('updateLevel')}</Button>
+          </div>
+        </CardContent>
+      </Card>
       
       <Accordion type="single" collapsible className="w-full space-y-4">
         {locations.map((location) => {
