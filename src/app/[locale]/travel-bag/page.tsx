@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useTranslations } from 'next-intl';
-import { Luggage, Plus, CheckCircle2, MapPin, X } from "lucide-react";
+import { Luggage, Plus, CheckCircle2, MapPin, X, Loader2, Sparkles } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import {
@@ -16,12 +16,27 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { suggestTravelBagItems } from "@/ai/flows/travel-bag-suggestions";
+import { useFlow } from "@/hooks/use-flow";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 export default function TravelBagPage() {
   const t = useTranslations('TravelBag');
   const [items, setItems] = useState<Record<string, boolean>>({});
   const [newItem, setNewItem] = useState("");
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
+  const [disabilityType, setDisabilityType] = useState<string>("");
+  const [destination, setDestination] = useState<string>("");
+  const [tripDuration, setTripDuration] = useState<string>("");
+  const [aiSuggestions, setAiSuggestions] = useState<any>(null);
+  const { loading, run } = useFlow(suggestTravelBagItems);
 
   const jordanDestinations = [
     {
@@ -113,6 +128,29 @@ export default function TravelBagPage() {
     }
   ];
 
+  const handleGetAISuggestions = async () => {
+    if (!disabilityType) return;
+    
+    const result = await run({
+      disabilityType,
+      destination: destination || undefined,
+      tripDuration: tripDuration || undefined,
+    });
+
+    if (result && result.suggestions) {
+      setAiSuggestions(result);
+      
+      // إضافة العناصر المقترحة إلى القائمة
+      result.suggestions.forEach((category: any) => {
+        category.items.forEach((item: string) => {
+          if (!items[item]) {
+            setItems(prev => ({ ...prev, [item]: false }));
+          }
+        });
+      });
+    }
+  };
+
   const toggleItem = (item: string) => {
     setItems(prev => ({ ...prev, [item]: !prev[item] }));
   };
@@ -141,6 +179,108 @@ export default function TravelBagPage() {
             </span>
           </div>
         )}
+        
+        {/* اختيار نوع الإعاقة وطلب اقتراحات من الذكاء الاصطناعي */}
+        <Card className="mt-6 max-w-2xl mx-auto">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-primary" />
+              {t('aiSuggestions.title')}
+            </CardTitle>
+            <CardDescription>{t('aiSuggestions.description')}</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="text-sm font-medium mb-2 block">{t('disabilityType')}</label>
+                <Select value={disabilityType} onValueChange={setDisabilityType}>
+                  <SelectTrigger>
+                    <SelectValue placeholder={t('disabilityTypePlaceholder')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="mobility">{t('disabilityTypes.mobility')}</SelectItem>
+                    <SelectItem value="visual">{t('disabilityTypes.visual')}</SelectItem>
+                    <SelectItem value="hearing">{t('disabilityTypes.hearing')}</SelectItem>
+                    <SelectItem value="cognitive">{t('disabilityTypes.cognitive')}</SelectItem>
+                    <SelectItem value="other">{t('disabilityTypes.other')}</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-2 block">{t('destination')}</label>
+                <Input
+                  placeholder={t('destinationPlaceholder')}
+                  value={destination}
+                  onChange={(e) => setDestination(e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium mb-2 block">{t('tripDuration')}</label>
+                <Input
+                  placeholder={t('tripDurationPlaceholder')}
+                  value={tripDuration}
+                  onChange={(e) => setTripDuration(e.target.value)}
+                />
+              </div>
+            </div>
+            <Button
+              onClick={handleGetAISuggestions}
+              disabled={!disabilityType || loading}
+              className="w-full"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  {t('aiSuggestions.loading')}
+                </>
+              ) : (
+                <>
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  {t('aiSuggestions.button')}
+                </>
+              )}
+            </Button>
+          </CardContent>
+        </Card>
+
+        {/* عرض اقتراحات الذكاء الاصطناعي */}
+        {aiSuggestions && (
+          <div className="mt-6 max-w-4xl mx-auto space-y-4">
+            {aiSuggestions.suggestions.map((category: any, index: number) => (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle>{category.category}</CardTitle>
+                  <CardDescription>{category.reason}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    {category.items.map((item: string, itemIndex: number) => (
+                      <div key={itemIndex} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={`ai-${index}-${itemIndex}`}
+                          checked={items[item] || false}
+                          onCheckedChange={() => toggleItem(item)}
+                        />
+                        <label
+                          htmlFor={`ai-${index}-${itemIndex}`}
+                          className="text-sm font-medium leading-none cursor-pointer"
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+            {aiSuggestions.generalTips && (
+              <Alert>
+                <AlertDescription>{aiSuggestions.generalTips}</AlertDescription>
+              </Alert>
+            )}
+          </div>
+        )}
+
         <div className="mt-6">
           <Dialog open={isDestinationsOpen} onOpenChange={setIsDestinationsOpen}>
             <DialogTrigger asChild>

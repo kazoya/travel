@@ -16,6 +16,7 @@ export const pathnames = {
   '/translate': '/translate',
   '/passport': '/passport',
   '/cultural-communication': '/cultural-communication',
+  '/cultural-travel': '/cultural-travel',
   '/travel-bag': '/travel-bag',
   '/emergency': '/emergency',
   '/booking': '/booking',

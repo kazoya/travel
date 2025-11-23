@@ -16,7 +16,8 @@ export default function AcademyPage() {
       description: t('lessons.planning.description'),
       duration: "15 min",
       type: "video",
-      completed: true
+      completed: true,
+      category: "travel"
     },
     {
       id: 2,
@@ -24,7 +25,8 @@ export default function AcademyPage() {
       description: t('lessons.packing.description'),
       duration: "10 min",
       type: "interactive",
-      completed: false
+      completed: false,
+      category: "travel"
     },
     {
       id: 3,
@@ -32,7 +34,8 @@ export default function AcademyPage() {
       description: t('lessons.rights.description'),
       duration: "20 min",
       type: "video",
-      completed: false
+      completed: false,
+      category: "rights"
     },
     {
       id: 4,
@@ -40,7 +43,44 @@ export default function AcademyPage() {
       description: t('lessons.safety.description'),
       duration: "12 min",
       type: "interactive",
-      completed: false
+      completed: false,
+      category: "safety"
+    },
+    {
+      id: 5,
+      title: t('lessons.interaction.title'),
+      description: t('lessons.interaction.description'),
+      duration: "18 min",
+      type: "video",
+      completed: false,
+      category: "interaction"
+    },
+    {
+      id: 6,
+      title: t('lessons.communication.title'),
+      description: t('lessons.communication.description'),
+      duration: "14 min",
+      type: "interactive",
+      completed: false,
+      category: "interaction"
+    },
+    {
+      id: 7,
+      title: t('lessons.assistance.title'),
+      description: t('lessons.assistance.description'),
+      duration: "16 min",
+      type: "video",
+      completed: false,
+      category: "interaction"
+    },
+    {
+      id: 8,
+      title: t('lessons.respect.title'),
+      description: t('lessons.respect.description'),
+      duration: "12 min",
+      type: "interactive",
+      completed: false,
+      category: "interaction"
     }
   ];
 
@@ -102,8 +142,108 @@ export default function AcademyPage() {
 
       <div className="space-y-6 mb-8">
         <h2 className="text-2xl font-bold font-headline">{t('lessonsTitle')}</h2>
+        
+        {/* قسم دورات السفر */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold font-headline mb-4 text-primary">{t('categories.travel')}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {lessons.filter(l => l.category === 'travel').map((lesson) => (
+              <Card key={lesson.id} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        {lesson.type === 'video' ? (
+                          <PlayCircle className="h-6 w-6 text-primary" />
+                        ) : (
+                          <BookOpen className="h-6 w-6 text-primary" />
+                        )}
+                      </div>
+                      <div>
+                        <CardTitle>{lesson.title}</CardTitle>
+                        <CardDescription className="mt-1">{lesson.description}</CardDescription>
+                        <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            {lesson.type === 'video' ? t('video') : t('interactive')}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {lesson.completed && (
+                      <Award className="h-5 w-5 text-primary" />
+                    )}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full" variant={lesson.completed ? "outline" : "default"}>
+                    {lesson.completed ? t('review') : t('start')}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* قسم دورات التعامل مع ذوي الإعاقة */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold font-headline mb-4 text-primary">{t('categories.interaction')}</h3>
+          <Card className="mb-4 bg-primary/5">
+            <CardHeader>
+              <CardTitle>{t('interactionIntro.title')}</CardTitle>
+              <CardDescription>{t('interactionIntro.description')}</CardDescription>
+            </CardHeader>
+          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {lessons.filter(l => l.category === 'interaction').map((lesson) => (
+              <Card key={lesson.id} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        {lesson.type === 'video' ? (
+                          <PlayCircle className="h-6 w-6 text-primary" />
+                        ) : (
+                          <BookOpen className="h-6 w-6 text-primary" />
+                        )}
+                      </div>
+                      <div>
+                        <CardTitle>{lesson.title}</CardTitle>
+                        <CardDescription className="mt-1">{lesson.description}</CardDescription>
+                        <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            {lesson.type === 'video' ? t('video') : t('interactive')}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {lesson.completed && (
+                      <Award className="h-5 w-5 text-primary" />
+                    )}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full" variant={lesson.completed ? "outline" : "default"}>
+                    {lesson.completed ? t('review') : t('start')}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* باقي الدروس */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {lessons.map((lesson) => (
+          {lessons.filter(l => l.category !== 'travel' && l.category !== 'interaction').map((lesson) => (
             <Card key={lesson.id} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between">

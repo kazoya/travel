@@ -45,6 +45,7 @@ export function SiteSidebar() {
     { href: "/translate", label: t('signTranslator'), icon: <Hand /> },
     { href: "/passport", label: t('healthPassport'), icon: <Fingerprint /> },
     { href: "/cultural-communication", label: t('culturalCommunication'), icon: <Globe /> },
+    { href: "/cultural-travel", label: t('culturalTravel'), icon: <Globe /> },
     { href: "/travel-bag", label: t('travelBag'), icon: <Luggage /> },
     { href: "/booking", label: t('booking'), icon: <Calendar /> },
     { href: "/emergency", label: t('emergency'), icon: <AlertTriangle /> },

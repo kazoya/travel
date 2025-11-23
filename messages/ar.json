@@ -104,6 +104,7 @@
     "signTranslator": "مترجم الإشارة",
     "healthPassport": "الجواز الصحي",
     "culturalCommunication": "التواصل الثقافي",
+    "culturalTravel": "السفر الثقافي",
     "travelBag": "حقيبة السفر",
     "emergency": "الطوارئ",
     "booking": "حجز الأماكن",
@@ -137,7 +138,17 @@
   "Assistant": {
     "title": "مساعد السفر الذكي",
     "description": "دليلك المدعوم بالذكاء الاصطناعي للسفر الميسر.",
-    "placeholder": "اسأل عن الفنادق ووسائل النقل المهيأة، إلخ."
+    "placeholder": "اسأل عن الفنادق ووسائل النقل المهيأة، إلخ.",
+    "welcomeMessage": "مرحباً! أنا مساعدك الذكي للسفر. كيف يمكنني مساعدتك اليوم؟",
+    "suggestPlacesQuery": "اقترح علي أفضل الأماكن السياحية المهيأة لذوي الإعاقة في الأردن",
+    "suggestedPlaces": "أماكن مقترحة",
+    "suggestedPlacesDescription": "انقر على أي مكان لمعرفة المزيد عنه",
+    "tellMeAbout": "أخبرني عن",
+    "modes": {
+      "audio": "صوتي",
+      "visual": "بصري",
+      "sign": "لغة الإشارة"
+    }
   },
   "Maps": {
     "title": "الخرائط المهيأة",
@@ -264,6 +275,25 @@
     "title": "حقيبة السفر",
     "description": "قوائم ذكية لمساعدتك على تحضير حقيبتك.",
     "completed": "مكتمل",
+    "disabilityType": "نوع الإعاقة",
+    "disabilityTypePlaceholder": "اختر نوع الإعاقة",
+    "destination": "الوجهة",
+    "destinationPlaceholder": "مثال: عمان، الأردن",
+    "tripDuration": "مدة الرحلة",
+    "tripDurationPlaceholder": "مثال: 5 أيام",
+    "disabilityTypes": {
+      "mobility": "إعاقة حركية",
+      "visual": "إعاقة بصرية",
+      "hearing": "إعاقة سمعية",
+      "cognitive": "إعاقة إدراكية",
+      "other": "أخرى"
+    },
+    "aiSuggestions": {
+      "title": "اقتراحات ذكية من الذكاء الاصطناعي",
+      "description": "اختر نوع إعاقتك واحصل على اقتراحات مخصصة لمحتويات حقيبتك",
+      "button": "احصل على اقتراحات ذكية",
+      "loading": "جارٍ التحليل..."
+    },
     "categories": {
       "documents": {
         "title": "المستندات",
@@ -538,7 +568,31 @@
       "safety": {
         "title": "السلامة أثناء السفر",
         "description": "كيفية البقاء آمناً أثناء السفر."
+      },
+      "interaction": {
+        "title": "كيفية التعامل مع أشخاص ذوي الإعاقة",
+        "description": "تعلم أفضل الممارسات للتواصل والتفاعل مع أشخاص ذوي الإعاقة."
+      },
+      "communication": {
+        "title": "التواصل الفعال",
+        "description": "طرق التواصل المناسبة مع مختلف أنواع الإعاقات."
+      },
+      "assistance": {
+        "title": "تقديم المساعدة",
+        "description": "كيفية تقديم المساعدة بطريقة محترمة ومفيدة."
+      },
+      "respect": {
+        "title": "الاحترام والكرامة",
+        "description": "مبادئ الاحترام والكرامة في التعامل مع ذوي الإعاقة."
       }
+    },
+    "categories": {
+      "travel": "دورات السفر",
+      "interaction": "دورات التعامل مع ذوي الإعاقة"
+    },
+    "interactionIntro": {
+      "title": "دورات التعامل مع أشخاص ذوي الإعاقة",
+      "description": "هذه الدورات مصممة لمساعدة الجميع على فهم كيفية التعامل باحترام وفعالية مع أشخاص ذوي الإعاقة أثناء السفر."
     },
     "achievements": {
       "firstLesson": "أول درس",
@@ -714,5 +768,30 @@
     "creating": "جارٍ الإنشاء...",
     "error": "خطأ",
     "errorDescription": "حدث خطأ أثناء إنشاء الحساب. يرجى المحاولة مرة أخرى."
+  },
+  "CulturalTravel": {
+    "title": "السفر الثقافي",
+    "description": "تواصل مع أشخاص من ذوي الإعاقة من دول أخرى وشارك تجاربك الثقافية.",
+    "searchAndFilter": "البحث والفلترة",
+    "searchPlaceholder": "ابحث عن اسم أو دولة أو اهتمامات...",
+    "selectCountry": "اختر الدولة",
+    "selectDisabilityType": "اختر نوع الإعاقة",
+    "allCountries": "جميع الدول",
+    "allDisabilities": "جميع أنواع الإعاقة",
+    "disabilityTypes": {
+      "mobility": "إعاقة حركية",
+      "visual": "إعاقة بصرية",
+      "hearing": "إعاقة سمعية",
+      "cognitive": "إعاقة إدراكية"
+    },
+    "totalConnections": "إجمالي الاتصالات",
+    "countries": "الدول",
+    "onlineNow": "متصلون الآن",
+    "online": "متصل",
+    "away": "غير متصل",
+    "languages": "اللغات",
+    "interests": "الاهتمامات",
+    "connect": "تواصل",
+    "noResults": "لم يتم العثور على نتائج. جرب تغيير معايير البحث."
   }
 }
