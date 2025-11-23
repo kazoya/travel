@@ -4,6 +4,8 @@
     "subheading": "Barrier-free travel for everyone. Plan, explore, and connect with confidence.",
     "planTripButton": "Plan Your Trip",
     "signInButton": "Sign In with Google",
+    "smartSearchLabel": "Where do you want to travel?",
+    "smartSearchPlaceholder": "Enter your destination and disability type, and we'll help you with a complete plan.",
     "features": {
       "tripPlanner": {
         "title": "Personalized Trip Planner",
@@ -75,6 +77,7 @@
     "signTranslator": "Sign Translator",
     "healthPassport": "Health Passport",
     "culturalCommunication": "Cultural Communication",
+    "culturalTravel": "Cultural Travel",
     "travelBag": "Travel Bag",
     "emergency": "Emergency",
     "booking": "Booking",
@@ -642,5 +645,57 @@
       "highContrast": "High contrast mode available",
       "responsive": "Responsive design works on all devices"
     }
+  },
+  "Accessibility": {
+    "title": "Accessibility Settings",
+    "description": "Customize your experience to match your needs",
+    "openSettings": "Open Accessibility Settings",
+    "fontSize": "Font Size",
+    "highContrast": "High Contrast Mode",
+    "textToSpeech": "Text-to-Speech",
+    "keyboardNavigation": "Keyboard Navigation",
+    "keyboardNavigationDesc": "Use Tab to navigate, Enter to activate, Esc to close"
+  },
+  "Registration": {
+    "title": "Create New Account",
+    "description": "Sign up for a personalized travel experience",
+    "signUp": "Sign Up",
+    "name": "Name",
+    "namePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+1 XXX XXX XXXX",
+    "password": "Password",
+    "passwordPlaceholder": "Strong password",
+    "createAccount": "Create Account",
+    "creating": "Creating...",
+    "error": "Error",
+    "errorDescription": "An error occurred while creating the account. Please try again."
+  },
+  "CulturalTravel": {
+    "title": "Cultural Travel",
+    "description": "Connect with people with disabilities from other countries and share your cultural experiences.",
+    "searchAndFilter": "Search and Filter",
+    "searchPlaceholder": "Search by name, country, or interests...",
+    "selectCountry": "Select Country",
+    "selectDisabilityType": "Select Disability Type",
+    "allCountries": "All Countries",
+    "allDisabilities": "All Disability Types",
+    "disabilityTypes": {
+      "mobility": "Mobility Impairment",
+      "visual": "Visual Impairment",
+      "hearing": "Hearing Impairment",
+      "cognitive": "Cognitive Disability"
+    },
+    "totalConnections": "Total Connections",
+    "countries": "Countries",
+    "onlineNow": "Online Now",
+    "online": "Online",
+    "away": "Away",
+    "languages": "Languages",
+    "interests": "Interests",
+    "connect": "Connect",
+    "noResults": "No results found. Try changing your search criteria."
   }
 }

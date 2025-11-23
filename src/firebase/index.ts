@@ -22,6 +22,11 @@ export function initializeFirebase() {
       if (process.env.NODE_ENV === "production") {
         console.warn('Automatic initialization failed. Falling back to firebase config object.', e);
       }
+      // Ensure firebaseConfig has required fields
+      if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+        console.error('Firebase configuration is incomplete. Please check your environment variables.');
+        throw new Error('Firebase configuration is incomplete');
+      }
       firebaseApp = initializeApp(firebaseConfig);
     }
 
