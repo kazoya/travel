@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, MapPin, Restroom, Umbrella, AlertCircle, Heart, Navigation } from "lucide-react";
+import { CheckCircle2, MapPin, Building, Umbrella, AlertCircle, Heart, Navigation } from "lucide-react";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { cn } from "@/lib/utils";
@@ -81,7 +81,7 @@ export default async function MapsPage({
         <Card className="hover:shadow-lg transition-shadow">
           <CardHeader className="pb-3">
             <CardTitle className="text-base flex items-center gap-2">
-              <Restroom className="h-5 w-5 text-primary" />
+              <Building className="h-5 w-5 text-primary" />
               {t('nearestRestroom')}
             </CardTitle>
           </CardHeader>
