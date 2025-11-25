@@ -54,7 +54,7 @@ export function SiteHeader() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative h-8 w-8">
               <Image
-                src="/app/logo.jpeg"
+                src="/logo.jpeg"
                 alt="سفر بلا حدود - Logo"
                 fill
                 className="object-contain"

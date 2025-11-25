@@ -144,10 +144,11 @@ export default async function Home({
               <div className="relative h-48">
                 <Image
                   src={dest.image}
-                  alt={dest.name}
+                  alt={dest.alt || dest.name}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
+                  aria-label={dest.alt || dest.name}
                 />
               </div>
               <CardContent className="p-4">

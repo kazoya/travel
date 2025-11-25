@@ -84,7 +84,11 @@
   }
 }
 
-/* High Contrast Mode */
+/* ============================================
+   VISUAL ACCESSIBILITY MODES
+   ============================================ */
+
+/* High Contrast Mode - Maximum Contrast */
 .high-contrast {
   --background: 0 0% 100%;
   --foreground: 0 0% 0%;
@@ -103,6 +107,9 @@
   --border: 0 0% 0%;
   --input: 0 0% 0%;
   --ring: 220 100% 50%;
+  /* Enhanced borders and spacing */
+  --border-width: 2px;
+  --spacing-multiplier: 1.2;
 }
 
 .high-contrast.dark {
@@ -123,9 +130,428 @@
   --border: 0 0% 100%;
   --input: 0 0% 100%;
   --ring: 220 100% 60%;
+  --border-width: 2px;
+  --spacing-multiplier: 1.2;
 }
 
-/* Accessibility: Larger touch targets */
+/* Medium Contrast Mode - Balanced for most users */
+.medium-contrast {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --primary: 220 90% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 92%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 15%;
+  --accent: 220 85% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 90% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 220 90% 45%;
+  --border-width: 1.5px;
+  --spacing-multiplier: 1.1;
+}
+
+.medium-contrast.dark {
+  --background: 0 0% 5%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 95%;
+  --primary: 220 85% 60%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 80%;
+  --accent: 220 80% 65%;
+  --accent-foreground: 0 0% 5%;
+  --destructive: 0 85% 55%;
+  --destructive-foreground: 0 0% 5%;
+  --border: 0 0% 80%;
+  --input: 0 0% 80%;
+  --ring: 220 85% 60%;
+  --border-width: 1.5px;
+  --spacing-multiplier: 1.1;
+}
+
+/* Low Light Mode - Reduced brightness for light sensitivity */
+.low-light {
+  --background: 0 0% 85%;
+  --foreground: 0 0% 15%;
+  --card: 0 0% 88%;
+  --card-foreground: 0 0% 15%;
+  --primary: 220 70% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 80%;
+  --secondary-foreground: 0 0% 15%;
+  --muted: 0 0% 82%;
+  --muted-foreground: 0 0% 20%;
+  --accent: 220 65% 45%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 40%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 30%;
+  --input: 0 0% 30%;
+  --ring: 220 70% 40%;
+  --border-width: 1px;
+  --spacing-multiplier: 1.15;
+}
+
+.low-light.dark {
+  --background: 0 0% 8%;
+  --foreground: 0 0% 85%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 85%;
+  --primary: 220 60% 55%;
+  --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 85%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 220 55% 60%;
+  --accent-foreground: 0 0% 8%;
+  --destructive: 0 60% 50%;
+  --destructive-foreground: 0 0% 8%;
+  --border: 0 0% 70%;
+  --input: 0 0% 70%;
+  --ring: 220 60% 55%;
+  --border-width: 1px;
+  --spacing-multiplier: 1.15;
+}
+
+/* Visual Aid Mode - Enhanced visual indicators */
+[data-visual-aid="true"] {
+  /* Enhanced focus indicators */
+  --ring-width: 4px;
+  --ring-offset: 4px;
+}
+
+/* Visual feedback when visual aid is enabled */
+[data-visual-aid="true"] body,
+body[data-visual-aid="true"] {
+  border-top: 4px solid hsl(var(--accent)) !important;
+  position: relative;
+}
+
+body[data-visual-aid="true"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: hsl(var(--accent));
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* Increase contrast for all text */
+[data-visual-aid="true"] {
+  --foreground: 0 0% 5%;
+  --background: 0 0% 98%;
+}
+
+[data-visual-aid="true"].dark {
+  --foreground: 0 0% 98%;
+  --background: 0 0% 5%;
+}
+
+[data-visual-aid="true"] *:focus-visible {
+  outline: 4px solid hsl(var(--ring)) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px hsl(var(--ring) / 0.2) !important;
+}
+
+[data-visual-aid="true"] button,
+[data-visual-aid="true"] a,
+[data-visual-aid="true"] [role="button"] {
+  border: 2px solid hsl(var(--border)) !important;
+  min-height: 48px !important;
+  padding: 0.75rem 1.5rem !important;
+}
+
+[data-visual-aid="true"] img {
+  border: 2px solid hsl(var(--border)) !important;
+}
+
+[data-visual-aid="true"] .card,
+[data-visual-aid="true"] [class*="card"] {
+  border: 2px solid hsl(var(--border)) !important;
+  box-shadow: 0 2px 8px hsl(var(--foreground) / 0.1) !important;
+}
+
+/* ============================================
+   AUDIO ACCESSIBILITY MODES
+   ============================================ */
+
+/* Hearing Aid Mode - Visual indicators for audio content */
+[data-hearing-aid="true"] {
+  /* Visual sound wave indicators */
+  --sound-indicator-color: hsl(var(--primary));
+}
+
+/* Visual feedback when hearing aid is enabled */
+[data-hearing-aid="true"] body,
+body[data-hearing-aid="true"] {
+  border-top: 4px solid hsl(var(--primary)) !important;
+  position: relative;
+}
+
+body[data-hearing-aid="true"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: hsl(var(--primary));
+  z-index: 9998;
+  pointer-events: none;
+}
+
+[data-hearing-aid="true"] button,
+[data-hearing-aid="true"] a,
+[data-hearing-aid="true"] [role="button"] {
+  position: relative;
+}
+
+[data-hearing-aid="true"] button::before,
+[data-hearing-aid="true"] a::before,
+[data-hearing-aid="true"] [role="button"]::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid hsl(var(--primary));
+  border-radius: inherit;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+[data-hearing-aid="true"] audio,
+[data-hearing-aid="true"] video {
+  border: 3px solid hsl(var(--primary)) !important;
+  border-radius: 8px;
+  position: relative;
+}
+
+[data-hearing-aid="true"] audio::before,
+[data-hearing-aid="true"] video::before {
+  content: "🔊";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+/* Visual sound indicators for buttons with audio */
+[data-hearing-aid="true"] [data-has-audio="true"] {
+  position: relative;
+}
+
+[data-hearing-aid="true"] [data-has-audio="true"]::after {
+  content: "🔊";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  border: 2px solid hsl(var(--background));
+}
+
+/* Enhanced captions and subtitles */
+[data-hearing-aid="true"] .caption,
+[data-hearing-aid="true"] .subtitle {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  background: hsl(var(--background) / 0.95) !important;
+  padding: 0.5rem 1rem !important;
+  border: 2px solid hsl(var(--primary)) !important;
+  border-radius: 4px !important;
+}
+
+/* Visual indicators for important audio notifications */
+[data-hearing-aid="true"] [data-audio-alert="true"] {
+  animation: pulse-audio 2s infinite;
+  border-left: 4px solid hsl(var(--primary)) !important;
+  padding-left: 1rem !important;
+}
+
+@keyframes pulse-audio {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   SIGN LANGUAGE SUPPORT
+   ============================================ */
+
+/* Visual feedback when sign language is enabled */
+[data-sign-language="true"] body,
+body[data-sign-language="true"] {
+  border-top: 4px solid hsl(var(--accent)) !important;
+  position: relative;
+}
+
+body[data-sign-language="true"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: hsl(var(--accent));
+  z-index: 9998;
+  pointer-events: none;
+}
+
+[data-sign-language="true"] .sign-language-video {
+  border: 3px solid hsl(var(--accent));
+  border-radius: 8px;
+  background: hsl(var(--card));
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+[data-sign-language="true"] .sign-language-toggle {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-sign-language="true"] [data-sign-text] {
+  position: relative;
+  cursor: help;
+}
+
+[data-sign-language="true"] [data-sign-text]:hover::after {
+  content: attr(data-sign-text);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 2px solid hsl(var(--accent));
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   REDUCED MOTION & VISUAL NOISE
+   ============================================ */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] *::before,
+[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Reduced visual noise - simpler backgrounds */
+[data-reduced-noise="true"] {
+  background-image: none !important;
+}
+
+[data-reduced-noise="true"] * {
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+[data-reduced-noise="true"] .card,
+[data-reduced-noise="true"] [class*="card"] {
+  background: hsl(var(--card)) !important;
+  border: 2px solid hsl(var(--border)) !important;
+}
+
+/* ============================================
+   ENHANCED TYPOGRAPHY & SPACING
+   ============================================ */
+
+[data-visual-aid="true"] {
+  /* Increased line height for better readability */
+  line-height: 1.8 !important;
+  letter-spacing: 0.02em !important;
+}
+
+[data-visual-aid="true"] p,
+[data-visual-aid="true"] span,
+[data-visual-aid="true"] div {
+  line-height: 1.8 !important;
+}
+
+[data-visual-aid="true"] h1,
+[data-visual-aid="true"] h2,
+[data-visual-aid="true"] h3,
+[data-visual-aid="true"] h4,
+[data-visual-aid="true"] h5,
+[data-visual-aid="true"] h6 {
+  letter-spacing: 0.05em !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+[data-visual-aid="true"] .container,
+[data-visual-aid="true"] [class*="container"] {
+  padding-left: calc(1rem * var(--spacing-multiplier, 1)) !important;
+  padding-right: calc(1rem * var(--spacing-multiplier, 1)) !important;
+}
+
+/* Enhanced borders when visual aid is enabled */
+[data-visual-aid="true"] * {
+  border-width: var(--border-width, 1px);
+}
+
+/* ============================================
+   ACCESSIBILITY: LARGER TOUCH TARGETS
+   ============================================ */
+
 @media (max-width: 768px) {
   button, a, [role="button"] {
     min-height: 44px;
@@ -133,8 +559,45 @@
   }
 }
 
-/* Accessibility: Focus visible */
+[data-visual-aid="true"] button,
+[data-visual-aid="true"] a,
+[data-visual-aid="true"] [role="button"] {
+  min-height: 48px !important;
+  min-width: 48px !important;
+}
+
+/* ============================================
+   ACCESSIBILITY: FOCUS VISIBLE
+   ============================================ */
+
 *:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+}
+
+[data-visual-aid="true"] *:focus-visible {
+  outline: 4px solid hsl(var(--ring)) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px hsl(var(--ring) / 0.2) !important;
+}
+
+/* ============================================
+   COLOR BLINDNESS SUPPORT
+   ============================================ */
+
+/* Ensure all important information uses patterns, not just color */
+[data-color-blind="true"] .status-success::before {
+  content: "✓ ";
+}
+
+[data-color-blind="true"] .status-error::before {
+  content: "✗ ";
+}
+
+[data-color-blind="true"] .status-warning::before {
+  content: "⚠ ";
+}
+
+[data-color-blind="true"] .status-info::before {
+  content: "ℹ ";
 }
