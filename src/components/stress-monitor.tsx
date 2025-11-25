@@ -7,9 +7,8 @@ import { useTranslations } from 'next-intl';
 import { Activity, AlertTriangle, MapPin, Clock } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { useAuth } from "@/firebase/provider";
+import { useAuth, useFirestore } from "@/firebase/provider";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db } from "@/firebase/config";
 
 interface StressData {
   level: number; // 0-100
@@ -25,6 +24,7 @@ interface StressData {
 export function StressMonitor() {
   const t = useTranslations('StressMonitor');
   const auth = useAuth();
+  const db = useFirestore();
   const [isMonitoring, setIsMonitoring] = useState(false);
   const [currentStress, setCurrentStress] = useState<StressData | null>(null);
   const [suggestions, setSuggestions] = useState<string[]>([]);

@@ -6,9 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from 'next-intl';
 import { Mic, Hand, Brain, CheckCircle2, Loader2 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
-import { useAuth } from "@/firebase/provider";
+import { useAuth, useFirestore } from "@/firebase/provider";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { db } from "@/firebase/config";
 
 interface DetectionResult {
   disabilityType?: string;
@@ -19,6 +18,7 @@ interface DetectionResult {
 export function SmartDisabilityDetection() {
   const t = useTranslations('DisabilityDetection');
   const auth = useAuth();
+  const db = useFirestore();
   const [isDetecting, setIsDetecting] = useState(false);
   const [detectionStep, setDetectionStep] = useState<'speech' | 'touch' | 'complete'>('speech');
   const [result, setResult] = useState<DetectionResult | null>(null);

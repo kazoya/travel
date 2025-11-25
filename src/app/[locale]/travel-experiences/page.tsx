@@ -15,9 +15,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAuth } from "@/firebase/provider";
+import { useAuth, useFirestore } from "@/firebase/provider";
 import { collection, addDoc, query, orderBy, getDocs, Timestamp } from "firebase/firestore";
-import { db } from "@/firebase/config";
 import Image from "next/image";
 
 interface TravelExperience {
@@ -37,6 +36,7 @@ interface TravelExperience {
 export default function TravelExperiencesPage() {
   const t = useTranslations('TravelExperiences');
   const auth = useAuth();
+  const db = useFirestore();
   const [experiences, setExperiences] = useState<TravelExperience[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
