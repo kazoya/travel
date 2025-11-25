@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { User, Settings, Award, Calendar, Star, Fingerprint } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import { SmartDisabilityDetection } from "@/components/smart-disability-detection";
 
 export default function ProfilePage() {
   const t = useTranslations('Profile');
@@ -69,14 +70,16 @@ export default function ProfilePage() {
         </TabsContent>
 
         <TabsContent value="disability">
-          <Card>
-          <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-          <User className="h-5 w-5" />
-          {t('disability.title')}
-          </CardTitle>
-          </CardHeader>
-            <CardContent className="space-y-4">
+          <div className="space-y-6">
+            <SmartDisabilityDetection />
+            <Card>
+            <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+            <User className="h-5 w-5" />
+            {t('disability.title')}
+            </CardTitle>
+            </CardHeader>
+              <CardContent className="space-y-4">
               <div>
                 <p className="text-sm text-muted-foreground mb-2">{t('disability.type')}</p>
                 <p className="font-medium">Wheelchair user</p>
@@ -95,6 +98,7 @@ export default function ProfilePage() {
               <Button variant="outline" className="w-full">{t('disability.edit')}</Button>
             </CardContent>
           </Card>
+          </div>
         </TabsContent>
 
         <TabsContent value="travel">

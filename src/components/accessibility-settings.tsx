@@ -14,13 +14,15 @@ import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { useTranslations } from 'next-intl';
-import { Accessibility, Volume2, Type, Eye, Keyboard } from "lucide-react";
+import { Accessibility, Volume2, Type, Eye, Keyboard, Ear, EarOff } from "lucide-react";
 
 export function AccessibilitySettings() {
   const t = useTranslations('Accessibility');
   const [fontSize, setFontSize] = useState(16);
   const [highContrast, setHighContrast] = useState(false);
   const [textToSpeech, setTextToSpeech] = useState(false);
+  const [hearingAid, setHearingAid] = useState(false);
+  const [visualAid, setVisualAid] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -28,10 +30,14 @@ export function AccessibilitySettings() {
     const savedFontSize = localStorage.getItem('accessibility-fontSize');
     const savedHighContrast = localStorage.getItem('accessibility-highContrast');
     const savedTextToSpeech = localStorage.getItem('accessibility-textToSpeech');
+    const savedHearingAid = localStorage.getItem('accessibility-hearingAid');
+    const savedVisualAid = localStorage.getItem('accessibility-visualAid');
 
     if (savedFontSize) setFontSize(Number(savedFontSize));
     if (savedHighContrast === 'true') setHighContrast(true);
     if (savedTextToSpeech === 'true') setTextToSpeech(true);
+    if (savedHearingAid === 'true') setHearingAid(true);
+    if (savedVisualAid === 'true') setVisualAid(true);
   }, []);
 
   useEffect(() => {
@@ -52,29 +58,42 @@ export function AccessibilitySettings() {
 
   useEffect(() => {
     // Text-to-speech setup
-    if (textToSpeech) {
-      // Enable text-to-speech functionality
-      const enableTTS = () => {
-        if ('speechSynthesis' in window) {
-          // Add click handlers to read text
-          const readText = (element: HTMLElement) => {
-            const text = element.innerText || element.textContent || '';
-            if (text) {
-              const utterance = new SpeechSynthesisUtterance(text);
-              utterance.lang = document.documentElement.lang || 'ar';
-              window.speechSynthesis.speak(utterance);
-            }
-          };
-
-          // Add event listeners to interactive elements
-          document.querySelectorAll('button, a, [role="button"]').forEach(el => {
-            el.addEventListener('click', (e) => {
-              readText(e.target as HTMLElement);
-            });
-          });
+    if (textToSpeech && 'speechSynthesis' in window) {
+      // Stop any ongoing speech
+      window.speechSynthesis.cancel();
+      
+      // Add click handlers to read text
+      const readText = (element: HTMLElement) => {
+        const text = element.innerText || element.textContent || '';
+        if (text && text.trim()) {
+          window.speechSynthesis.cancel(); // Cancel previous speech
+          const utterance = new SpeechSynthesisUtterance(text);
+          const lang = document.documentElement.lang || 'ar';
+          utterance.lang = lang === 'ar' ? 'ar-SA' : 'en-US';
+          utterance.rate = 0.9;
+          utterance.pitch = 1;
+          window.speechSynthesis.speak(utterance);
         }
       };
-      enableTTS();
+
+      // Add event listeners to interactive elements
+      const handleClick = (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.getAttribute('role') === 'button') {
+          readText(target);
+        }
+      };
+
+      // Add listeners to all interactive elements
+      document.addEventListener('click', handleClick, true);
+      
+      // Cleanup function
+      return () => {
+        document.removeEventListener('click', handleClick, true);
+        window.speechSynthesis.cancel();
+      };
+    } else if (!textToSpeech) {
+      window.speechSynthesis.cancel();
     }
     localStorage.setItem('accessibility-textToSpeech', textToSpeech.toString());
   }, [textToSpeech]);
@@ -139,6 +158,62 @@ export function AccessibilitySettings() {
               id="text-to-speech"
               checked={textToSpeech}
               onCheckedChange={setTextToSpeech}
+            />
+          </div>
+
+          {/* Hearing Aid Support */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="hearing-aid" className="flex items-center gap-2">
+              {hearingAid ? <Ear className="h-4 w-4" /> : <EarOff className="h-4 w-4" />}
+              {t('hearingAid')}
+            </Label>
+            <Switch
+              id="hearing-aid"
+              checked={hearingAid}
+              onCheckedChange={(checked) => {
+                setHearingAid(checked);
+                localStorage.setItem('accessibility-hearingAid', checked.toString());
+                // Enable visual indicators for hearing impaired
+                if (checked) {
+                  document.documentElement.setAttribute('data-hearing-aid', 'true');
+                } else {
+                  document.documentElement.removeAttribute('data-hearing-aid');
+                }
+              }}
+            />
+          </div>
+
+          {/* Visual Aid Support */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="visual-aid" className="flex items-center gap-2">
+              <Eye className="h-4 w-4" />
+              {t('visualAid')}
+            </Label>
+            <Switch
+              id="visual-aid"
+              checked={visualAid}
+              onCheckedChange={(checked) => {
+                setVisualAid(checked);
+                localStorage.setItem('accessibility-visualAid', checked.toString());
+                // Enable screen reader optimizations
+                if (checked) {
+                  document.documentElement.setAttribute('data-visual-aid', 'true');
+                  // Increase focus indicators
+                  const style = document.createElement('style');
+                  style.id = 'visual-aid-styles';
+                  style.textContent = `
+                    *:focus-visible {
+                      outline: 3px solid hsl(var(--primary)) !important;
+                      outline-offset: 3px !important;
+                    }
+                  `;
+                  document.head.appendChild(style);
+                } else {
+                  document.documentElement.removeAttribute('data-visual-aid');
+                  const style = document.getElementById('visual-aid-styles');
+                  if (style) style.remove();
+                }
+              }}
             />
           </div>
 

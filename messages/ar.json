@@ -113,7 +113,8 @@
     "academy": "الأكاديمية",
     "profile": "الملف الشخصي",
     "destinations360": "الوجهات 360°",
-    "sitemap": "خريطة الموقع"
+    "sitemap": "خريطة الموقع",
+    "travelExperiences": "تجارب السفر"
   },
   "TripPlanner": {
     "title": "مخطط الرحلات الشخصي",
@@ -749,6 +750,8 @@
     "fontSize": "حجم الخط",
     "highContrast": "وضع التباين العالي",
     "textToSpeech": "قراءة النص بصوت",
+    "hearingAid": "دعم السمع",
+    "visualAid": "دعم البصر",
     "keyboardNavigation": "التنقل بلوحة المفاتيح",
     "keyboardNavigationDesc": "استخدم Tab للتنقل، Enter للتفعيل، Esc للإغلاق"
   },
@@ -793,5 +796,13 @@
     "interests": "الاهتمامات",
     "connect": "تواصل",
     "noResults": "لم يتم العثور على نتائج. جرب تغيير معايير البحث."
+  },
+  "DisabilityDetection": {
+    "title": "التعرف الذكي على الإعاقة",
+    "description": "دعنا نتعرف على احتياجاتك من خلال تحليل طريقة كلامك ولمسك للشاشة"
+  },
+  "StressMonitor": {
+    "title": "مراقبة الإجهاد",
+    "description": "قياس مستوى التوتر أثناء الرحلة"
   }
 }

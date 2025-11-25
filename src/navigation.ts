@@ -26,6 +26,9 @@ export const pathnames = {
   '/profile': '/profile',
   '/destinations-360': '/destinations-360',
   '/sitemap': '/sitemap',
+  '/travel-experiences': '/travel-experiences',
+  '/city-ratings': '/city-ratings',
+  '/family-control': '/family-control',
 };
  
 export const {Link, redirect, usePathname, useRouter} =

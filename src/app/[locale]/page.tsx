@@ -68,18 +68,18 @@ export default async function Home({
     },
   ];
 
-  // Sample destinations
+  // Sample destinations - Jordan heritage sites
   const destinations = [
-    { name: "عمان", rating: 4.8, image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400" },
     { name: "البتراء", rating: 4.9, image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400" },
     { name: "وادي رم", rating: 4.7, image: "https://images.unsplash.com/photo-1544966503-7cc49efe91a3?w=400" },
+    { name: "جرش", rating: 4.8, image: "https://images.unsplash.com/photo-1711378154447-97f7b0379c87?w=400" },
   ];
 
-  // Sample experiences
+  // Sample experiences - Jordan travelers
   const experiences = [
-    { author: "أحمد محمد", text: "تجربة رائعة! المنصة ساعدتني في التخطيط لرحلتي بسهولة." },
-    { author: "فاطمة علي", text: "خدمة ممتازة، خاصة للمساعدة في العثور على أماكن مهيأة." },
-    { author: "خالد حسن", text: "جواز السفر الرقمي سهل حياتي كثيراً في المطارات." },
+    { author: "أحمد محمد - عمان", text: "تجربة رائعة! المنصة ساعدتني في التخطيط لرحلتي إلى البتراء بسهولة. كل شيء كان مجهزاً لكرسيي المتحرك." },
+    { author: "فاطمة علي - إربد", text: "خدمة ممتازة، خاصة للمساعدة في العثور على أماكن مهيأة في وادي رم. استمتعت برحلة لا تُنسى." },
+    { author: "خالد حسن - الزرقاء", text: "جواز السفر الرقمي سهل حياتي كثيراً في مطار الملكة علياء. الطاقم كان متفهماً ومتعاوناً." },
   ];
 
   return (
@@ -88,7 +88,7 @@ export default async function Home({
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070"
+            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070"
             alt={t('heroImageAlt')}
             fill
             className="object-cover"

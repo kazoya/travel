@@ -53,6 +53,7 @@ export function SiteSidebar() {
     { href: "/training", label: t('training'), icon: <GraduationCap /> },
     { href: "/companion-auth", label: t('companionAuth'), icon: <UserPlus /> },
     { href: "/profile", label: t('profile'), icon: <User /> },
+    { href: "/travel-experiences", label: t('travelExperiences'), icon: <Eye /> },
     { href: "/sitemap", label: t('sitemap'), icon: <MapPin /> },
   ];
 

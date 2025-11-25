@@ -13,6 +13,7 @@ import { routing } from '@/i18n/routing';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { StressMonitor } from "@/components/stress-monitor";
 
 const locations = [
   {
@@ -139,30 +140,10 @@ export default async function MapsPage({
         </Card>
       </div>
 
-      {/* Stress Level Indicator */}
-      <Card className="mb-8 bg-gradient-to-r from-primary/10 to-accent/10">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <AlertCircle className="h-5 w-5" />
-            {t('stressLevel')}
-          </CardTitle>
-          <CardDescription>{t('stressLevelDesc')}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center gap-4">
-            <div className="flex-1">
-              <div className="flex justify-between text-sm mb-2">
-                <span>{t('currentLevel')}</span>
-                <Badge variant="outline">متوسط</Badge>
-              </div>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div className="h-full bg-primary w-1/2 transition-all"></div>
-              </div>
-            </div>
-            <Button variant="outline">{t('updateLevel')}</Button>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Stress Monitor */}
+      <div className="mb-8">
+        <StressMonitor />
+      </div>
       
       <Accordion type="single" collapsible className="w-full space-y-4">
         {locations.map((location) => {

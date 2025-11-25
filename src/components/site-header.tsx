@@ -26,6 +26,7 @@ import {
 import { UserButton } from "@/components/user-button";
 import { AccessibilitySettings } from "@/components/accessibility-settings";
 import { UserRegistration } from "@/components/user-registration";
+import Image from "next/image";
 
 
 export function SiteHeader() {
@@ -51,9 +52,14 @@ export function SiteHeader() {
         <div className="mr-4 flex items-center">
           <SidebarTrigger className="md:hidden" />
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative">
-              <Accessibility className="h-7 w-7 text-primary" />
-              <Sun className="absolute -right-2 -top-2 h-4 w-4 text-amber-500" />
+            <div className="relative h-8 w-8">
+              <Image
+                src="/app/logo.jpeg"
+                alt="سفر بلا حدود - Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <span className="font-bold font-headline text-lg">{t('title')}</span>
           </Link>
