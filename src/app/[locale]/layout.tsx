@@ -10,6 +10,7 @@ import {
 import { SiteSidebar } from "@/components/site-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { FloatingAssistBar } from "@/components/floating-assist-bar";
+import { AccessibilityAssistant } from "@/components/accessibility-assistant";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { setRequestLocale } from 'next-intl/server';
@@ -88,6 +89,7 @@ export default async function RootLayout({
                 </SidebarInset>
               </SidebarProvider>
               <FloatingAssistBar />
+              <AccessibilityAssistant />
               <Toaster />
             </ThemeProvider>
           </FirebaseClientProvider>

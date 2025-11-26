@@ -194,6 +194,34 @@
       "sign": "Sign Language"
     }
   },
+  "AccessibilityAssistant": {
+    "voiceButtonLabel": "Activate Voice Assistant",
+    "signLanguageButtonLabel": "Activate Sign Language Assistant",
+    "voiceNotSupported": "Your browser does not support voice assistant",
+    "defaultContent": "Welcome to the inclusive travel platform. Use the buttons to navigate and interact with the platform.",
+    "defaultTitle": "Platform Page",
+    "voiceAssistant": {
+      "title": "Voice Assistant",
+      "description": "The voice assistant reads the current page content and guides you vocally to navigate the platform.",
+      "currentContent": "Current Content",
+      "reading": "Reading...",
+      "pause": "Pause",
+      "resume": "Resume",
+      "stop": "Stop",
+      "instructions": "The assistant will read the page content and guide you to navigate. Use the control buttons to manage reading."
+    },
+    "signLanguageAssistant": {
+      "title": "Sign Language Assistant",
+      "description": "An AI visual assistant that displays sign language to explain page content and guide you on how to interact with the platform.",
+      "characterTitle": "Visual Assistant",
+      "characterDescription": "A virtual character displaying sign language to explain content",
+      "placeholder": "Sign language assistant will be displayed here soon",
+      "pageInfo": "Page Information",
+      "pageTitle": "Page Title",
+      "pageDescription": "Page Description",
+      "close": "Close"
+    }
+  },
   "CulturalCommunication": {
     "title": "Cultural Communication",
     "description": "Connect with local communities and share your cultural experiences while traveling.",
