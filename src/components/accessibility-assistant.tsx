@@ -12,7 +12,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import petraImage from "../petra.jpg";
 
 export function AccessibilityAssistant() {
   const t = useTranslations('AccessibilityAssistant');
@@ -29,10 +28,8 @@ export function AccessibilityAssistant() {
       synthRef.current = window.speechSynthesis;
     }
     
-    // Set background image to Petra
-    // Next.js image imports return an object with src property
-    const imagePath = (petraImage as { src?: string; [key: string]: any })?.src || String(petraImage);
-    setBackgroundImage(imagePath);
+    // Set background image to Petra from public folder
+    setBackgroundImage("/petra.jpg");
 
     return () => {
       // Cleanup: stop any ongoing speech
