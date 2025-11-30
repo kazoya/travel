@@ -88,7 +88,7 @@ export default async function Home({
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=2070"
+            src="/petra.jpg"
             alt={t('heroImageAlt')}
             fill
             className="object-cover"

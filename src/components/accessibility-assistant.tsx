@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import petraImage from "../petra.jpg";
 
 export function AccessibilityAssistant() {
   const t = useTranslations('AccessibilityAssistant');
@@ -28,13 +29,10 @@ export function AccessibilityAssistant() {
       synthRef.current = window.speechSynthesis;
     }
     
-    // Set background image to Petra or Jordan location
-    const jordanImages = [
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80', // Petra
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&q=80', // Jordan landscape
-      'https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=1920&q=80', // Wadi Rum
-    ];
-    setBackgroundImage(jordanImages[0]); // Default to Petra
+    // Set background image to Petra
+    // Next.js image imports return an object with src property
+    const imagePath = (petraImage as { src?: string; [key: string]: any })?.src || String(petraImage);
+    setBackgroundImage(imagePath);
 
     return () => {
       // Cleanup: stop any ongoing speech
