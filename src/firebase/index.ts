@@ -16,7 +16,7 @@ export function initializeFirebase() {
     try {
       // Attempt to initialize via Firebase App Hosting environment variables
       firebaseApp = initializeApp();
-    } catch (e) {
+    } catch (e: any) {
       // Only warn in production because it's normal to use the firebaseConfig to initialize
       // during development
       if (process.env.NODE_ENV === "production") {
@@ -27,6 +27,7 @@ export function initializeFirebase() {
         console.error('Firebase configuration is incomplete. Please check your environment variables.');
         throw new Error('Firebase configuration is incomplete');
       }
+      // Always use firebaseConfig when automatic initialization fails
       firebaseApp = initializeApp(firebaseConfig);
     }
 

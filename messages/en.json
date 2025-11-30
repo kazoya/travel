@@ -4,6 +4,7 @@
     "subheading": "Barrier-free travel for everyone. Plan, explore, and connect with confidence.",
     "planTripButton": "Plan Your Trip",
     "signInButton": "Sign In with Google",
+    "signOutButton": "Sign Out",
     "smartSearchLabel": "Where do you want to travel?",
     "smartSearchPlaceholder": "Enter your destination and disability type, and we'll help you with a complete plan.",
     "features": {
@@ -86,6 +87,7 @@
     "academy": "Academy",
     "profile": "Profile",
     "destinations360": "Destinations 360°",
+    "travelExperiences": "Travel Experiences",
     "sitemap": "Site Map"
   },
   "TripPlanner": {

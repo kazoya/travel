@@ -4,6 +4,7 @@
     "subheading": "Barrier-free travel for everyone. Plan, explore, and connect with confidence.",
     "planTripButton": "Plan Your Trip",
     "signInButton": "Sign In with Google",
+    "signOutButton": "Se déconnecter",
     "features": {
       "tripPlanner": {
         "title": "Personalized Trip Planner",
